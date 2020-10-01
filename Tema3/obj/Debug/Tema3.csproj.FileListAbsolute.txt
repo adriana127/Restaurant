@@ -1,0 +1,127 @@
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\Tema3.csprojAssemblyReference.cache
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\MainWindow.g.cs
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\AdaugaMeniuView.g.cs
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\AdaugaPreparatView.g.cs
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\AlergenPreparat.g.cs
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\AlergenView.g.cs
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\CategoriiView.g.cs
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\DetaliiMeniu.g.cs
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\DetaliiPreparat.g.cs
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\MeniuView.g.cs
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\PreparateView.g.cs
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\App.g.cs
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\Tema3_Content.g.cs
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\Tema3_MarkupCompile.cache
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\Tema3_MarkupCompile.lref
+C:\Users\Adriana\Desktop\Tema3\Tema3\bin\Debug\Tema3.exe.config
+C:\Users\Adriana\Desktop\Tema3\Tema3\bin\Debug\Tema3.exe
+C:\Users\Adriana\Desktop\Tema3\Tema3\bin\Debug\Tema3.pdb
+C:\Users\Adriana\Desktop\Tema3\Tema3\bin\Debug\EntityFramework.dll
+C:\Users\Adriana\Desktop\Tema3\Tema3\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Adriana\Desktop\Tema3\Tema3\bin\Debug\Hangfire.Core.dll
+C:\Users\Adriana\Desktop\Tema3\Tema3\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Adriana\Desktop\Tema3\Tema3\bin\Debug\Owin.dll
+C:\Users\Adriana\Desktop\Tema3\Tema3\bin\Debug\EntityFramework.xml
+C:\Users\Adriana\Desktop\Tema3\Tema3\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Adriana\Desktop\Tema3\Tema3\bin\Debug\Hangfire.Core.xml
+C:\Users\Adriana\Desktop\Tema3\Tema3\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Adriana\Desktop\Tema3\Tema3\bin\Debug\es\Hangfire.Core.resources.dll
+C:\Users\Adriana\Desktop\Tema3\Tema3\bin\Debug\fa\Hangfire.Core.resources.dll
+C:\Users\Adriana\Desktop\Tema3\Tema3\bin\Debug\nl\Hangfire.Core.resources.dll
+C:\Users\Adriana\Desktop\Tema3\Tema3\bin\Debug\pt\Hangfire.Core.resources.dll
+C:\Users\Adriana\Desktop\Tema3\Tema3\bin\Debug\pt-BR\Hangfire.Core.resources.dll
+C:\Users\Adriana\Desktop\Tema3\Tema3\bin\Debug\pt-PT\Hangfire.Core.resources.dll
+C:\Users\Adriana\Desktop\Tema3\Tema3\bin\Debug\zh\Hangfire.Core.resources.dll
+C:\Users\Adriana\Desktop\Tema3\Tema3\bin\Debug\zh-TW\Hangfire.Core.resources.dll
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\App.baml
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\MainWindow.baml
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\AdaugaMeniuView.baml
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\AdaugaPreparatView.baml
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\AlergenPreparat.baml
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\AlergenView.baml
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\CategoriiView.baml
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\DetaliiMeniu.baml
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\DetaliiPreparat.baml
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\MeniuView.baml
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\PreparateView.baml
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\Tema3.g.resources
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\Tema3.Properties.Resources.resources
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\Tema3.csproj.GenerateResource.cache
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\Tema3.csproj.CopyComplete
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\Tema3.exe
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\Tema3.pdb
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\LoginView.g.cs
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\LoginView.baml
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\CartView.g.cs
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\CartView.baml
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\SignUpView.g.cs
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\SignUpView.baml
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\ComenziView.g.cs
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\ComenziView.baml
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\AdaugaDetaliiContView.g.cs
+C:\Users\Adriana\Desktop\Tema3\Tema3\obj\Debug\View\AdaugaDetaliiContView.baml
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\bin\Debug\Tema3.exe.config
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\bin\Debug\Tema3.exe
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\bin\Debug\Tema3.pdb
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\bin\Debug\EntityFramework.dll
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\bin\Debug\Hangfire.Core.dll
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\bin\Debug\Owin.dll
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\bin\Debug\EntityFramework.xml
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\bin\Debug\Hangfire.Core.xml
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\bin\Debug\es\Hangfire.Core.resources.dll
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\bin\Debug\fa\Hangfire.Core.resources.dll
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\bin\Debug\nl\Hangfire.Core.resources.dll
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\bin\Debug\pt\Hangfire.Core.resources.dll
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\bin\Debug\pt-BR\Hangfire.Core.resources.dll
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\bin\Debug\pt-PT\Hangfire.Core.resources.dll
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\bin\Debug\zh\Hangfire.Core.resources.dll
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\bin\Debug\zh-TW\Hangfire.Core.resources.dll
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\Tema3.csprojAssemblyReference.cache
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\MainWindow.g.cs
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\AdaugaDetaliiContView.g.cs
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\AdaugaMeniuView.g.cs
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\AdaugaPreparatView.g.cs
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\AlergenPreparat.g.cs
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\AlergenView.g.cs
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\CartView.g.cs
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\CategoriiView.g.cs
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\ComenziView.g.cs
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\DetaliiMeniu.g.cs
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\DetaliiPreparat.g.cs
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\LoginView.g.cs
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\MeniuView.g.cs
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\PreparateView.g.cs
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\SignUpView.g.cs
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\App.g.cs
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\Tema3_Content.g.cs
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\Tema3_MarkupCompile.cache
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\Tema3_MarkupCompile.lref
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\App.baml
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\MainWindow.baml
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\AdaugaDetaliiContView.baml
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\AdaugaMeniuView.baml
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\AdaugaPreparatView.baml
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\AlergenPreparat.baml
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\AlergenView.baml
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\CartView.baml
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\CategoriiView.baml
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\ComenziView.baml
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\DetaliiMeniu.baml
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\DetaliiPreparat.baml
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\LoginView.baml
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\MeniuView.baml
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\PreparateView.baml
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\View\SignUpView.baml
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\Tema3.g.resources
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\Tema3.Properties.Resources.resources
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\Tema3.csproj.GenerateResource.cache
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\Tema3.csproj.CoreCompileInputs.cache
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\Tema3.csproj.CopyComplete
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\Tema3.exe
+C:\Users\Adriana\Desktop\Anul II sem II\Tema3\Tema3\obj\Debug\Tema3.pdb

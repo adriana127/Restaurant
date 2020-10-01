@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RestaurantModelStoreContainer" CdmEntityContainer="RestaurantEntities1">
+    <EntitySetMapping Name="Alergens">
+      <EntityTypeMapping TypeName="RestaurantModel.Alergen">
+        <MappingFragment StoreEntitySet="Alergen">
+          <ScalarProperty Name="id_alergen" ColumnName="id_alergen" />
+          <ScalarProperty Name="denumire" ColumnName="denumire" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlergenPreparats">
+      <EntityTypeMapping TypeName="RestaurantModel.AlergenPreparat">
+        <MappingFragment StoreEntitySet="AlergenPreparat">
+          <ScalarProperty Name="id_AlergenPreparat" ColumnName="id_AlergenPreparat" />
+          <ScalarProperty Name="id_preparat" ColumnName="id_preparat" />
+          <ScalarProperty Name="id_alergen" ColumnName="id_alergen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="RestaurantModel.Categorie">
+        <MappingFragment StoreEntitySet="Categorie">
+          <ScalarProperty Name="id_categorie" ColumnName="id_categorie" />
+          <ScalarProperty Name="denumire" ColumnName="denumire" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comandas">
+      <EntityTypeMapping TypeName="RestaurantModel.Comanda">
+        <MappingFragment StoreEntitySet="Comanda">
+          <ScalarProperty Name="id_comanda" ColumnName="id_comanda" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="id_status" ColumnName="id_status" />
+          <ScalarProperty Name="id_cont" ColumnName="id_cont" />
+          <ScalarProperty Name="pret" ColumnName="pret" />
+          <ScalarProperty Name="timp" ColumnName="timp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Conts">
+      <EntityTypeMapping TypeName="RestaurantModel.Cont">
+        <MappingFragment StoreEntitySet="Cont">
+          <ScalarProperty Name="id_cont" ColumnName="id_cont" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="parola" ColumnName="parola" />
+          <ScalarProperty Name="statut" ColumnName="statut" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetaliiConts">
+      <EntityTypeMapping TypeName="RestaurantModel.DetaliiCont">
+        <MappingFragment StoreEntitySet="DetaliiCont">
+          <ScalarProperty Name="id_detalii" ColumnName="id_detalii" />
+          <ScalarProperty Name="nume" ColumnName="nume" />
+          <ScalarProperty Name="prenume" ColumnName="prenume" />
+          <ScalarProperty Name="adresa" ColumnName="adresa" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="id_cont" ColumnName="id_cont" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fotografies">
+      <EntityTypeMapping TypeName="RestaurantModel.Fotografie">
+        <MappingFragment StoreEntitySet="Fotografie">
+          <ScalarProperty Name="id_foto" ColumnName="id_foto" />
+          <ScalarProperty Name="foto_path" ColumnName="foto_path" />
+          <ScalarProperty Name="id_preparat" ColumnName="id_preparat" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menius">
+      <EntityTypeMapping TypeName="RestaurantModel.Meniu">
+        <MappingFragment StoreEntitySet="Meniu">
+          <ScalarProperty Name="id_meniu" ColumnName="id_meniu" />
+          <ScalarProperty Name="pret" ColumnName="pret" />
+          <ScalarProperty Name="reducere" ColumnName="reducere" />
+          <ScalarProperty Name="denumireMeniu" ColumnName="denumireMeniu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MeniuComandas">
+      <EntityTypeMapping TypeName="RestaurantModel.MeniuComanda">
+        <MappingFragment StoreEntitySet="MeniuComanda">
+          <ScalarProperty Name="id_meniucomanda" ColumnName="id_meniucomanda" />
+          <ScalarProperty Name="id_meniu" ColumnName="id_meniu" />
+          <ScalarProperty Name="id_comanda" ColumnName="id_comanda" />
+          <ScalarProperty Name="nrBucati" ColumnName="nrBucati" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MeniuPreparats">
+      <EntityTypeMapping TypeName="RestaurantModel.MeniuPreparat">
+        <MappingFragment StoreEntitySet="MeniuPreparat">
+          <ScalarProperty Name="id_meniuPreparat" ColumnName="id_meniuPreparat" />
+          <ScalarProperty Name="id_preparat" ColumnName="id_preparat" />
+          <ScalarProperty Name="id_meniu" ColumnName="id_meniu" />
+          <ScalarProperty Name="cantitate" ColumnName="cantitate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Preparats">
+      <EntityTypeMapping TypeName="RestaurantModel.Preparat">
+        <MappingFragment StoreEntitySet="Preparat">
+          <ScalarProperty Name="id_preparat" ColumnName="id_preparat" />
+          <ScalarProperty Name="denumire" ColumnName="denumire" />
+          <ScalarProperty Name="pret" ColumnName="pret" />
+          <ScalarProperty Name="cantitate" ColumnName="cantitate" />
+          <ScalarProperty Name="cantitate_totala" ColumnName="cantitate_totala" />
+          <ScalarProperty Name="id_categorie" ColumnName="id_categorie" />
+          <ScalarProperty Name="disponibilitate" ColumnName="disponibilitate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PreparatComandas">
+      <EntityTypeMapping TypeName="RestaurantModel.PreparatComanda">
+        <MappingFragment StoreEntitySet="PreparatComanda">
+          <ScalarProperty Name="id_PreparatComanda" ColumnName="id_PreparatComanda" />
+          <ScalarProperty Name="id_preparat" ColumnName="id_preparat" />
+          <ScalarProperty Name="id_comanda" ColumnName="id_comanda" />
+          <ScalarProperty Name="nrBucati" ColumnName="nrBucati" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatusComandas">
+      <EntityTypeMapping TypeName="RestaurantModel.StatusComanda">
+        <MappingFragment StoreEntitySet="StatusComanda">
+          <ScalarProperty Name="id_status" ColumnName="id_status" />
+          <ScalarProperty Name="denumire" ColumnName="denumire" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatusulComenziis">
+      <EntityTypeMapping TypeName="RestaurantModel.StatusulComenzii">
+        <MappingFragment StoreEntitySet="StatusulComenzii">
+          <ScalarProperty Name="id_StatusulComenzii" ColumnName="id_StatusulComenzii" />
+          <ScalarProperty Name="id_comanda" ColumnName="id_comanda" />
+          <ScalarProperty Name="id_status" ColumnName="id_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AdaugareAlergen" FunctionName="RestaurantModel.Store.AdaugareAlergen" />
+    <FunctionImportMapping FunctionImportName="AdaugareAlergenPreparat" FunctionName="RestaurantModel.Store.AdaugareAlergenPreparat" />
+    <FunctionImportMapping FunctionImportName="AdaugareCategorie" FunctionName="RestaurantModel.Store.AdaugareCategorie" />
+    <FunctionImportMapping FunctionImportName="AdaugareComanda" FunctionName="RestaurantModel.Store.AdaugareComanda" />
+    <FunctionImportMapping FunctionImportName="AdaugareCont" FunctionName="RestaurantModel.Store.AdaugareCont" />
+    <FunctionImportMapping FunctionImportName="AdaugareDetaliiCont" FunctionName="RestaurantModel.Store.AdaugareDetaliiCont" />
+    <FunctionImportMapping FunctionImportName="AdaugareMeniu" FunctionName="RestaurantModel.Store.AdaugareMeniu" />
+    <FunctionImportMapping FunctionImportName="AdaugareMeniuInComanda" FunctionName="RestaurantModel.Store.AdaugareMeniuInComanda" />
+    <FunctionImportMapping FunctionImportName="AdaugarePoza" FunctionName="RestaurantModel.Store.AdaugarePoza" />
+    <FunctionImportMapping FunctionImportName="AdaugarePreparat" FunctionName="RestaurantModel.Store.AdaugarePreparat" />
+    <FunctionImportMapping FunctionImportName="AdaugarePreparatCategorie" FunctionName="RestaurantModel.Store.AdaugarePreparatCategorie" />
+    <FunctionImportMapping FunctionImportName="AdaugarePreparatInComanda" FunctionName="RestaurantModel.Store.AdaugarePreparatInComanda" />
+    <FunctionImportMapping FunctionImportName="AdaugarePreparatInMeniu" FunctionName="RestaurantModel.Store.AdaugarePreparatInMeniu" />
+    <FunctionImportMapping FunctionImportName="AdaugareStatus" FunctionName="RestaurantModel.Store.AdaugareStatus" />
+    <FunctionImportMapping FunctionImportName="AfisareAlergen" FunctionName="RestaurantModel.Store.AfisareAlergen">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.AfisareAlergen_Result">
+          <ScalarProperty Name="id_alergen" ColumnName="id_alergen" />
+          <ScalarProperty Name="denumire" ColumnName="denumire" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfisareAlergeni" FunctionName="RestaurantModel.Store.AfisareAlergeni">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.AfisareAlergeni_Result">
+          <ScalarProperty Name="id_alergen" ColumnName="id_alergen" />
+          <ScalarProperty Name="denumire" ColumnName="denumire" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfisareCategorieDupaID" FunctionName="RestaurantModel.Store.AfisareCategorieDupaID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.AfisareCategorieDupaID_Result">
+          <ScalarProperty Name="id_categorie" ColumnName="id_categorie" />
+          <ScalarProperty Name="denumire" ColumnName="denumire" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfisareCategoriePreparat" FunctionName="RestaurantModel.Store.AfisareCategoriePreparat">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.AfisareCategoriePreparat_Result">
+          <ScalarProperty Name="id_categorie" ColumnName="id_categorie" />
+          <ScalarProperty Name="denumire" ColumnName="denumire" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfisareCategorii" FunctionName="RestaurantModel.Store.AfisareCategorii">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.AfisareCategorii_Result">
+          <ScalarProperty Name="id_categorie" ColumnName="id_categorie" />
+          <ScalarProperty Name="denumire" ColumnName="denumire" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfisareComenziCont" FunctionName="RestaurantModel.Store.AfisareComenziCont">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.AfisareComenziCont_Result">
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="denumire" ColumnName="denumire" />
+          <ScalarProperty Name="id_comanda" ColumnName="id_comanda" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfisareDetaliiComandaDupaEmail" FunctionName="RestaurantModel.Store.AfisareDetaliiComandaDupaEmail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.AfisareDetaliiComandaDupaEmail_Result">
+          <ScalarProperty Name="denumire" ColumnName="denumire" />
+          <ScalarProperty Name="pret" ColumnName="pret" />
+          <ScalarProperty Name="cantitate" ColumnName="cantitate" />
+          <ScalarProperty Name="denumiremeniu" ColumnName="denumiremeniu" />
+          <ScalarProperty Name="pret1" ColumnName="pret1" />
+          <ScalarProperty Name="nrbucati" ColumnName="nrbucati" />
+          <ScalarProperty Name="pret2" ColumnName="pret2" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="nume" ColumnName="nume" />
+          <ScalarProperty Name="prenume" ColumnName="prenume" />
+          <ScalarProperty Name="adresa" ColumnName="adresa" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfisareDetaliiComandaDupaIdComanda" FunctionName="RestaurantModel.Store.AfisareDetaliiComandaDupaIdComanda">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.AfisareDetaliiComandaDupaIdComanda_Result">
+          <ScalarProperty Name="id_comanda" ColumnName="id_comanda" />
+          <ScalarProperty Name="denumire" ColumnName="denumire" />
+          <ScalarProperty Name="pret" ColumnName="pret" />
+          <ScalarProperty Name="cantitate" ColumnName="cantitate" />
+          <ScalarProperty Name="pret1" ColumnName="pret1" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="nume" ColumnName="nume" />
+          <ScalarProperty Name="prenume" ColumnName="prenume" />
+          <ScalarProperty Name="adresa" ColumnName="adresa" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfisareDetaliiCont" FunctionName="RestaurantModel.Store.AfisareDetaliiCont">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.AfisareDetaliiCont_Result">
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="nume" ColumnName="nume" />
+          <ScalarProperty Name="prenume" ColumnName="prenume" />
+          <ScalarProperty Name="adresa" ColumnName="adresa" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfisareListaAlergeniPreparat" FunctionName="RestaurantModel.Store.AfisareListaAlergeniPreparat">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.AfisareListaAlergeniPreparat_Result">
+          <ScalarProperty Name="id_alergenpreparat" ColumnName="id_alergenpreparat" />
+          <ScalarProperty Name="id_preparat" ColumnName="id_preparat" />
+          <ScalarProperty Name="id_alergen" ColumnName="id_alergen" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfisareMeniuriComanda" FunctionName="RestaurantModel.Store.AfisareMeniuriComanda">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.AfisareMeniuriComanda_Result">
+          <ScalarProperty Name="id_comanda" ColumnName="id_comanda" />
+          <ScalarProperty Name="id_comanda1" ColumnName="id_comanda1" />
+          <ScalarProperty Name="denumireMeniu" ColumnName="denumireMeniu" />
+          <ScalarProperty Name="pret" ColumnName="pret" />
+          <ScalarProperty Name="nrBucati" ColumnName="nrBucati" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfisarePreparatDupaCategorie" FunctionName="RestaurantModel.Store.AfisarePreparatDupaCategorie">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.AfisarePreparatDupaCategorie_Result">
+          <ScalarProperty Name="id_preparat" ColumnName="id_preparat" />
+          <ScalarProperty Name="denumire" ColumnName="denumire" />
+          <ScalarProperty Name="pret" ColumnName="pret" />
+          <ScalarProperty Name="cantitate" ColumnName="cantitate" />
+          <ScalarProperty Name="cantitate_totala" ColumnName="cantitate_totala" />
+          <ScalarProperty Name="id_categorie" ColumnName="id_categorie" />
+          <ScalarProperty Name="disponibilitate" ColumnName="disponibilitate" />
+          <ScalarProperty Name="id_categorie1" ColumnName="id_categorie1" />
+          <ScalarProperty Name="denumire1" ColumnName="denumire1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfisarePreparatDupaDenumire" FunctionName="RestaurantModel.Store.AfisarePreparatDupaDenumire">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.AfisarePreparatDupaDenumire_Result">
+          <ScalarProperty Name="id_preparat" ColumnName="id_preparat" />
+          <ScalarProperty Name="denumire" ColumnName="denumire" />
+          <ScalarProperty Name="pret" ColumnName="pret" />
+          <ScalarProperty Name="cantitate" ColumnName="cantitate" />
+          <ScalarProperty Name="cantitate_totala" ColumnName="cantitate_totala" />
+          <ScalarProperty Name="id_categorie" ColumnName="id_categorie" />
+          <ScalarProperty Name="disponibilitate" ColumnName="disponibilitate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfisarePreparatDupaID" FunctionName="RestaurantModel.Store.AfisarePreparatDupaID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.AfisarePreparatDupaID_Result">
+          <ScalarProperty Name="id_preparat" ColumnName="id_preparat" />
+          <ScalarProperty Name="denumire" ColumnName="denumire" />
+          <ScalarProperty Name="pret" ColumnName="pret" />
+          <ScalarProperty Name="cantitate" ColumnName="cantitate" />
+          <ScalarProperty Name="cantitate_totala" ColumnName="cantitate_totala" />
+          <ScalarProperty Name="id_categorie" ColumnName="id_categorie" />
+          <ScalarProperty Name="disponibilitate" ColumnName="disponibilitate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfisarePreparate" FunctionName="RestaurantModel.Store.AfisarePreparate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.AfisarePreparate_Result">
+          <ScalarProperty Name="id_preparat" ColumnName="id_preparat" />
+          <ScalarProperty Name="denumire" ColumnName="denumire" />
+          <ScalarProperty Name="pret" ColumnName="pret" />
+          <ScalarProperty Name="cantitate" ColumnName="cantitate" />
+          <ScalarProperty Name="cantitate_totala" ColumnName="cantitate_totala" />
+          <ScalarProperty Name="id_categorie" ColumnName="id_categorie" />
+          <ScalarProperty Name="disponibilitate" ColumnName="disponibilitate" />
+          <ScalarProperty Name="id_categorie1" ColumnName="id_categorie1" />
+          <ScalarProperty Name="denumire1" ColumnName="denumire1" />
+          <ScalarProperty Name="denumire2" ColumnName="denumire2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfisarePreparateComanda" FunctionName="RestaurantModel.Store.AfisarePreparateComanda" />
+    <FunctionImportMapping FunctionImportName="AfisarePreparateDinMeniu" FunctionName="RestaurantModel.Store.AfisarePreparateDinMeniu">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.AfisarePreparateDinMeniu_Result">
+          <ScalarProperty Name="id_preparat" ColumnName="id_preparat" />
+          <ScalarProperty Name="denumire" ColumnName="denumire" />
+          <ScalarProperty Name="cantitate" ColumnName="cantitate" />
+          <ScalarProperty Name="cantitate_totala" ColumnName="cantitate_totala" />
+          <ScalarProperty Name="pret" ColumnName="pret" />
+          <ScalarProperty Name="id_categorie" ColumnName="id_categorie" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfisarePreparateMeniu" FunctionName="RestaurantModel.Store.AfisarePreparateMeniu">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.AfisarePreparateMeniu_Result">
+          <ScalarProperty Name="id_preparat" ColumnName="id_preparat" />
+          <ScalarProperty Name="cantitate" ColumnName="cantitate" />
+          <ScalarProperty Name="cantitate_totala" ColumnName="cantitate_totala" />
+          <ScalarProperty Name="denumire" ColumnName="denumire" />
+          <ScalarProperty Name="id_categorie" ColumnName="id_categorie" />
+          <ScalarProperty Name="pret" ColumnName="pret" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AplicaReducereMeniu" FunctionName="RestaurantModel.Store.AplicaReducereMeniu" />
+    <FunctionImportMapping FunctionImportName="CautaMeniu" FunctionName="RestaurantModel.Store.CautaMeniu">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.CautaMeniu_Result">
+          <ScalarProperty Name="id_meniu" ColumnName="id_meniu" />
+          <ScalarProperty Name="pret" ColumnName="pret" />
+          <ScalarProperty Name="reducere" ColumnName="reducere" />
+          <ScalarProperty Name="denumireMeniu" ColumnName="denumireMeniu" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CautaPreparat" FunctionName="RestaurantModel.Store.CautaPreparat">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.CautaPreparat_Result">
+          <ScalarProperty Name="id_preparat" ColumnName="id_preparat" />
+          <ScalarProperty Name="denumire" ColumnName="denumire" />
+          <ScalarProperty Name="pret" ColumnName="pret" />
+          <ScalarProperty Name="cantitate" ColumnName="cantitate" />
+          <ScalarProperty Name="cantitate_totala" ColumnName="cantitate_totala" />
+          <ScalarProperty Name="id_categorie" ColumnName="id_categorie" />
+          <ScalarProperty Name="disponibilitate" ColumnName="disponibilitate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LegaturaMeniuComanda" FunctionName="RestaurantModel.Store.LegaturaMeniuComanda" />
+    <FunctionImportMapping FunctionImportName="LegaturaPreparatAlergen" FunctionName="RestaurantModel.Store.LegaturaPreparatAlergen" />
+    <FunctionImportMapping FunctionImportName="LegaturaPreparatComanda" FunctionName="RestaurantModel.Store.LegaturaPreparatComanda" />
+    <FunctionImportMapping FunctionImportName="LegaturaPreparatMeniu" FunctionName="RestaurantModel.Store.LegaturaPreparatMeniu" />
+    <FunctionImportMapping FunctionImportName="LegaturaStatusComanda" FunctionName="RestaurantModel.Store.LegaturaStatusComanda" />
+    <FunctionImportMapping FunctionImportName="ModificaAlergen" FunctionName="RestaurantModel.Store.ModificaAlergen" />
+    <FunctionImportMapping FunctionImportName="ModificaCategorie" FunctionName="RestaurantModel.Store.ModificaCategorie" />
+    <FunctionImportMapping FunctionImportName="ModificaMeniu" FunctionName="RestaurantModel.Store.ModificaMeniu" />
+    <FunctionImportMapping FunctionImportName="ModificaNumeMeniu" FunctionName="RestaurantModel.Store.ModificaNumeMeniu" />
+    <FunctionImportMapping FunctionImportName="ModificaPreparat" FunctionName="RestaurantModel.Store.ModificaPreparat" />
+    <FunctionImportMapping FunctionImportName="ModificaPretPreparatInMeniu" FunctionName="RestaurantModel.Store.ModificaPretPreparatInMeniu" />
+    <FunctionImportMapping FunctionImportName="ModificareAlergen" FunctionName="RestaurantModel.Store.ModificareAlergen" />
+    <FunctionImportMapping FunctionImportName="ModificarePretComanda" FunctionName="RestaurantModel.Store.ModificarePretComanda" />
+    <FunctionImportMapping FunctionImportName="ModificarePretComandaMeniu" FunctionName="RestaurantModel.Store.ModificarePretComandaMeniu" />
+    <FunctionImportMapping FunctionImportName="ModificarePretMeniu" FunctionName="RestaurantModel.Store.ModificarePretMeniu" />
+    <FunctionImportMapping FunctionImportName="SelectareAlergen" FunctionName="RestaurantModel.Store.SelectareAlergen" />
+    <FunctionImportMapping FunctionImportName="SelectareAlergenPreparat" FunctionName="RestaurantModel.Store.SelectareAlergenPreparat" />
+    <FunctionImportMapping FunctionImportName="SelectareCantitateProdus" FunctionName="RestaurantModel.Store.SelectareCantitateProdus" />
+    <FunctionImportMapping FunctionImportName="SelectareCantProdusInMeniu" FunctionName="RestaurantModel.Store.SelectareCantProdusInMeniu" />
+    <FunctionImportMapping FunctionImportName="SelectareCategorie" FunctionName="RestaurantModel.Store.SelectareCategorie" />
+    <FunctionImportMapping FunctionImportName="SelectareCont" FunctionName="RestaurantModel.Store.SelectareCont" />
+    <FunctionImportMapping FunctionImportName="SelectareMeniu" FunctionName="RestaurantModel.Store.SelectareMeniu" />
+    <FunctionImportMapping FunctionImportName="SelectarePreparat" FunctionName="RestaurantModel.Store.SelectarePreparat" />
+    <FunctionImportMapping FunctionImportName="SelectarePretMeniu" FunctionName="RestaurantModel.Store.SelectarePretMeniu" />
+    <FunctionImportMapping FunctionImportName="SelectarePretProdus" FunctionName="RestaurantModel.Store.SelectarePretProdus" />
+    <FunctionImportMapping FunctionImportName="StergeAlergen" FunctionName="RestaurantModel.Store.StergeAlergen" />
+    <FunctionImportMapping FunctionImportName="StergeAlergenDupaID" FunctionName="RestaurantModel.Store.StergeAlergenDupaID" />
+    <FunctionImportMapping FunctionImportName="StergeCategorie" FunctionName="RestaurantModel.Store.StergeCategorie" />
+    <FunctionImportMapping FunctionImportName="StergeMeniu" FunctionName="RestaurantModel.Store.StergeMeniu" />
+    <FunctionImportMapping FunctionImportName="StergePoza" FunctionName="RestaurantModel.Store.StergePoza" />
+    <FunctionImportMapping FunctionImportName="StergePreparat" FunctionName="RestaurantModel.Store.StergePreparat" />
+    <FunctionImportMapping FunctionImportName="StergePreparat2" FunctionName="RestaurantModel.Store.StergePreparat2" />
+    <FunctionImportMapping FunctionImportName="StergePreparatInMeniu" FunctionName="RestaurantModel.Store.StergePreparatInMeniu" />
+    <FunctionImportMapping FunctionImportName="TrimiteComanda" FunctionName="RestaurantModel.Store.TrimiteComanda" />
+    <FunctionImportMapping FunctionImportName="VerificaContComanda" FunctionName="RestaurantModel.Store.VerificaContComanda">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.VerificaContComanda_Result">
+          <ScalarProperty Name="id_comanda" ColumnName="id_comanda" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="id_status" ColumnName="id_status" />
+          <ScalarProperty Name="id_cont" ColumnName="id_cont" />
+          <ScalarProperty Name="pret" ColumnName="pret" />
+          <ScalarProperty Name="timp" ColumnName="timp" />
+          <ScalarProperty Name="id_PreparatComanda" ColumnName="id_PreparatComanda" />
+          <ScalarProperty Name="id_preparat" ColumnName="id_preparat" />
+          <ScalarProperty Name="id_comanda1" ColumnName="id_comanda1" />
+          <ScalarProperty Name="nrBucati" ColumnName="nrBucati" />
+          <ScalarProperty Name="id_meniucomanda" ColumnName="id_meniucomanda" />
+          <ScalarProperty Name="id_meniu" ColumnName="id_meniu" />
+          <ScalarProperty Name="id_comanda2" ColumnName="id_comanda2" />
+          <ScalarProperty Name="nrBucati1" ColumnName="nrBucati1" />
+          <ScalarProperty Name="id_StatusulComenzii" ColumnName="id_StatusulComenzii" />
+          <ScalarProperty Name="id_comanda3" ColumnName="id_comanda3" />
+          <ScalarProperty Name="id_status1" ColumnName="id_status1" />
+          <ScalarProperty Name="id_cont1" ColumnName="id_cont1" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="parola" ColumnName="parola" />
+          <ScalarProperty Name="statut" ColumnName="statut" />
+          <ScalarProperty Name="id_detalii" ColumnName="id_detalii" />
+          <ScalarProperty Name="nume" ColumnName="nume" />
+          <ScalarProperty Name="prenume" ColumnName="prenume" />
+          <ScalarProperty Name="adresa" ColumnName="adresa" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="id_cont2" ColumnName="id_cont2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="stergePreparatDinCos" FunctionName="RestaurantModel.Store.stergePreparatDinCos" />
+    <FunctionImportMapping FunctionImportName="StergeMeniuDinCos" FunctionName="RestaurantModel.Store.StergeMeniuDinCos" />
+    <FunctionImportMapping FunctionImportName="ModificaStare" FunctionName="RestaurantModel.Store.ModificaStare" />
+  </EntityContainerMapping>
+</Mapping>

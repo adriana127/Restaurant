@@ -1,0 +1,667 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RestaurantModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Alergen">
+    <Key>
+      <PropertyRef Name="id_alergen" />
+    </Key>
+    <Property Name="id_alergen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="denumire" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="AlergenPreparat">
+    <Key>
+      <PropertyRef Name="id_AlergenPreparat" />
+    </Key>
+    <Property Name="id_AlergenPreparat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_preparat" Type="int" />
+    <Property Name="id_alergen" Type="int" />
+  </EntityType>
+  <EntityType Name="Categorie">
+    <Key>
+      <PropertyRef Name="id_categorie" />
+    </Key>
+    <Property Name="id_categorie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="denumire" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Comanda">
+    <Key>
+      <PropertyRef Name="id_comanda" />
+    </Key>
+    <Property Name="id_comanda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Discount" Type="float" />
+    <Property Name="id_status" Type="int" />
+    <Property Name="id_cont" Type="int" />
+    <Property Name="pret" Type="float" />
+    <Property Name="timp" Type="date" />
+  </EntityType>
+  <EntityType Name="Cont">
+    <Key>
+      <PropertyRef Name="id_cont" />
+    </Key>
+    <Property Name="id_cont" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="100" />
+    <Property Name="parola" Type="varchar" MaxLength="100" />
+    <Property Name="statut" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DetaliiCont">
+    <Key>
+      <PropertyRef Name="id_detalii" />
+    </Key>
+    <Property Name="id_detalii" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nume" Type="varchar" MaxLength="100" />
+    <Property Name="prenume" Type="varchar" MaxLength="100" />
+    <Property Name="adresa" Type="varchar" MaxLength="200" />
+    <Property Name="telefon" Type="varchar" MaxLength="15" />
+    <Property Name="id_cont" Type="int" />
+  </EntityType>
+  <EntityType Name="Fotografie">
+    <Key>
+      <PropertyRef Name="id_foto" />
+    </Key>
+    <Property Name="id_foto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="foto_path" Type="varchar" MaxLength="100" />
+    <Property Name="id_preparat" Type="int" />
+    <Property Name="foto" Type="image" />
+  </EntityType>
+  <EntityType Name="Meniu">
+    <Key>
+      <PropertyRef Name="id_meniu" />
+    </Key>
+    <Property Name="id_meniu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pret" Type="float" />
+    <Property Name="reducere" Type="float" />
+    <Property Name="denumireMeniu" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="MeniuComanda">
+    <Key>
+      <PropertyRef Name="id_meniucomanda" />
+    </Key>
+    <Property Name="id_meniucomanda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_meniu" Type="int" />
+    <Property Name="id_comanda" Type="int" />
+    <Property Name="nrBucati" Type="int" />
+  </EntityType>
+  <EntityType Name="MeniuPreparat">
+    <Key>
+      <PropertyRef Name="id_meniuPreparat" />
+    </Key>
+    <Property Name="id_meniuPreparat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_preparat" Type="int" />
+    <Property Name="id_meniu" Type="int" />
+    <Property Name="cantitate" Type="float" />
+  </EntityType>
+  <EntityType Name="Preparat">
+    <Key>
+      <PropertyRef Name="id_preparat" />
+    </Key>
+    <Property Name="id_preparat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="denumire" Type="varchar" MaxLength="100" />
+    <Property Name="pret" Type="float" />
+    <Property Name="cantitate" Type="int" />
+    <Property Name="cantitate_totala" Type="int" />
+    <Property Name="id_categorie" Type="int" />
+    <Property Name="disponibilitate" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PreparatComanda">
+    <Key>
+      <PropertyRef Name="id_PreparatComanda" />
+    </Key>
+    <Property Name="id_PreparatComanda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_preparat" Type="int" />
+    <Property Name="id_comanda" Type="int" />
+    <Property Name="nrBucati" Type="int" />
+  </EntityType>
+  <EntityType Name="StatusComanda">
+    <Key>
+      <PropertyRef Name="id_status" />
+    </Key>
+    <Property Name="id_status" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="denumire" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="StatusulComenzii">
+    <Key>
+      <PropertyRef Name="id_StatusulComenzii" />
+    </Key>
+    <Property Name="id_StatusulComenzii" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_comanda" Type="int" />
+    <Property Name="id_status" Type="int" />
+  </EntityType>
+  <Association Name="FK__AlergenPr__id_al__31EC6D26">
+    <End Role="Alergen" Type="Self.Alergen" Multiplicity="0..1" />
+    <End Role="AlergenPreparat" Type="Self.AlergenPreparat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alergen">
+        <PropertyRef Name="id_alergen" />
+      </Principal>
+      <Dependent Role="AlergenPreparat">
+        <PropertyRef Name="id_alergen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AlergenPr__id_pr__30F848ED">
+    <End Role="Preparat" Type="Self.Preparat" Multiplicity="0..1" />
+    <End Role="AlergenPreparat" Type="Self.AlergenPreparat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Preparat">
+        <PropertyRef Name="id_preparat" />
+      </Principal>
+      <Dependent Role="AlergenPreparat">
+        <PropertyRef Name="id_preparat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Comanda__id_cont__44FF419A">
+    <End Role="Cont" Type="Self.Cont" Multiplicity="0..1" />
+    <End Role="Comanda" Type="Self.Comanda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cont">
+        <PropertyRef Name="id_cont" />
+      </Principal>
+      <Dependent Role="Comanda">
+        <PropertyRef Name="id_cont" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Comanda__id_stat__440B1D61">
+    <End Role="StatusComanda" Type="Self.StatusComanda" Multiplicity="0..1" />
+    <End Role="Comanda" Type="Self.Comanda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusComanda">
+        <PropertyRef Name="id_status" />
+      </Principal>
+      <Dependent Role="Comanda">
+        <PropertyRef Name="id_status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DetaliiCo__id_co__7C4F7684">
+    <End Role="Cont" Type="Self.Cont" Multiplicity="0..1" />
+    <End Role="DetaliiCont" Type="Self.DetaliiCont" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cont">
+        <PropertyRef Name="id_cont" />
+      </Principal>
+      <Dependent Role="DetaliiCont">
+        <PropertyRef Name="id_cont" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Fotografi__id_pr__34C8D9D1">
+    <End Role="Preparat" Type="Self.Preparat" Multiplicity="0..1" />
+    <End Role="Fotografie" Type="Self.Fotografie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Preparat">
+        <PropertyRef Name="id_preparat" />
+      </Principal>
+      <Dependent Role="Fotografie">
+        <PropertyRef Name="id_preparat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MeniuComa__id_co__03F0984C">
+    <End Role="Comanda" Type="Self.Comanda" Multiplicity="0..1" />
+    <End Role="MeniuComanda" Type="Self.MeniuComanda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comanda">
+        <PropertyRef Name="id_comanda" />
+      </Principal>
+      <Dependent Role="MeniuComanda">
+        <PropertyRef Name="id_comanda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MeniuComa__id_me__02FC7413">
+    <End Role="Meniu" Type="Self.Meniu" Multiplicity="0..1" />
+    <End Role="MeniuComanda" Type="Self.MeniuComanda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Meniu">
+        <PropertyRef Name="id_meniu" />
+      </Principal>
+      <Dependent Role="MeniuComanda">
+        <PropertyRef Name="id_meniu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MeniuPrep__id_me__3A81B327">
+    <End Role="Meniu" Type="Self.Meniu" Multiplicity="0..1" />
+    <End Role="MeniuPreparat" Type="Self.MeniuPreparat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Meniu">
+        <PropertyRef Name="id_meniu" />
+      </Principal>
+      <Dependent Role="MeniuPreparat">
+        <PropertyRef Name="id_meniu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MeniuPrep__id_pr__398D8EEE">
+    <End Role="Preparat" Type="Self.Preparat" Multiplicity="0..1" />
+    <End Role="MeniuPreparat" Type="Self.MeniuPreparat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Preparat">
+        <PropertyRef Name="id_preparat" />
+      </Principal>
+      <Dependent Role="MeniuPreparat">
+        <PropertyRef Name="id_preparat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Preparat__id_cat__49C3F6B7">
+    <End Role="Categorie" Type="Self.Categorie" Multiplicity="0..1" />
+    <End Role="Preparat" Type="Self.Preparat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorie">
+        <PropertyRef Name="id_categorie" />
+      </Principal>
+      <Dependent Role="Preparat">
+        <PropertyRef Name="id_categorie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PreparatC__id_co__48CFD27E">
+    <End Role="Comanda" Type="Self.Comanda" Multiplicity="0..1" />
+    <End Role="PreparatComanda" Type="Self.PreparatComanda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comanda">
+        <PropertyRef Name="id_comanda" />
+      </Principal>
+      <Dependent Role="PreparatComanda">
+        <PropertyRef Name="id_comanda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PreparatC__id_pr__47DBAE45">
+    <End Role="Preparat" Type="Self.Preparat" Multiplicity="0..1" />
+    <End Role="PreparatComanda" Type="Self.PreparatComanda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Preparat">
+        <PropertyRef Name="id_preparat" />
+      </Principal>
+      <Dependent Role="PreparatComanda">
+        <PropertyRef Name="id_preparat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StatusulC__id_co__5BE2A6F2">
+    <End Role="Comanda" Type="Self.Comanda" Multiplicity="0..1" />
+    <End Role="StatusulComenzii" Type="Self.StatusulComenzii" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comanda">
+        <PropertyRef Name="id_comanda" />
+      </Principal>
+      <Dependent Role="StatusulComenzii">
+        <PropertyRef Name="id_comanda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StatusulC__id_st__5CD6CB2B">
+    <End Role="StatusComanda" Type="Self.StatusComanda" Multiplicity="0..1" />
+    <End Role="StatusulComenzii" Type="Self.StatusulComenzii" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusComanda">
+        <PropertyRef Name="id_status" />
+      </Principal>
+      <Dependent Role="StatusulComenzii">
+        <PropertyRef Name="id_status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AdaugareAlergen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumire" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AdaugareAlergenPreparat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumireAlergen" Type="varchar" Mode="In" />
+    <Parameter Name="denumirePreparat" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AdaugareCategorie" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumire" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AdaugareComanda" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="discount" Type="float" Mode="In" />
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="AdaugareCont" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="parola" Type="varchar" Mode="In" />
+    <Parameter Name="statut" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AdaugareDetaliiCont" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nume" Type="varchar" Mode="In" />
+    <Parameter Name="prenume" Type="varchar" Mode="In" />
+    <Parameter Name="adresa" Type="varchar" Mode="In" />
+    <Parameter Name="telefon" Type="int" Mode="In" />
+    <Parameter Name="email" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AdaugareMeniu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumire" Type="varchar" Mode="In" />
+    <Parameter Name="pret" Type="float" Mode="In" />
+    <Parameter Name="reducere" Type="float" Mode="In" />
+  </Function>
+  <Function Name="AdaugareMeniuInComanda" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="comanda" Type="int" Mode="In" />
+    <Parameter Name="denumiremeniu" Type="varchar" Mode="In" />
+    <Parameter Name="cantitate" Type="float" Mode="In" />
+  </Function>
+  <Function Name="AdaugarePoza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="foto_path" Type="varchar" Mode="In" />
+    <Parameter Name="id_preparat" Type="int" Mode="In" />
+  </Function>
+  <Function Name="AdaugarePreparat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumire" Type="varchar" Mode="In" />
+    <Parameter Name="pret" Type="float" Mode="In" />
+    <Parameter Name="cantitate" Type="float" Mode="In" />
+    <Parameter Name="cantitate_totala" Type="float" Mode="In" />
+    <Parameter Name="id_categorie" Type="int" Mode="In" />
+  </Function>
+  <Function Name="AdaugarePreparatCategorie" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumireCategorie" Type="varchar" Mode="In" />
+    <Parameter Name="denumirePreparat" Type="varchar" Mode="In" />
+    <Parameter Name="pretPreparat" Type="float" Mode="In" />
+    <Parameter Name="cantPreparat" Type="float" Mode="In" />
+    <Parameter Name="cantTotalaPreparat" Type="float" Mode="In" />
+  </Function>
+  <Function Name="AdaugarePreparatInComanda" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="comanda" Type="int" Mode="In" />
+    <Parameter Name="denPreparat" Type="varchar" Mode="In" />
+    <Parameter Name="cantitate" Type="float" Mode="In" />
+  </Function>
+  <Function Name="AdaugarePreparatInMeniu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumireMeniu" Type="varchar" Mode="In" />
+    <Parameter Name="denumirePreparat" Type="varchar" Mode="In" />
+    <Parameter Name="cantitatePreparat" Type="float" Mode="In" />
+  </Function>
+  <Function Name="AdaugareStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumire" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AfisareAlergen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_alergen" Type="int" Mode="In" />
+  </Function>
+  <Function Name="AfisareAlergeni" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="AfisareCategorieDupaID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_categorie" Type="int" Mode="In" />
+  </Function>
+  <Function Name="AfisareCategoriePreparat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumirePreparat" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AfisareCategorii" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="AfisareComenziCont" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AfisareDetaliiComandaDupaEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AfisareDetaliiComandaDupaIdComanda" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idcomanda" Type="int" Mode="In" />
+  </Function>
+  <Function Name="AfisareDetaliiCont" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AfisareListaAlergeniPreparat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumirePreparat" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AfisareMeniuriComanda" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AfisarePreparatDupaCategorie" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumireCategorie" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AfisarePreparatDupaDenumire" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumire" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AfisarePreparatDupaID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_preparat" Type="int" Mode="In" />
+  </Function>
+  <Function Name="AfisarePreparate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="AfisarePreparateComanda" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AfisarePreparateDinMeniu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumire" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AfisarePreparateMeniu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumire" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AplicaReducereMeniu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumire" Type="varchar" Mode="In" />
+    <Parameter Name="reducere" Type="float" Mode="In" />
+  </Function>
+  <Function Name="CautaMeniu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumire" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="CautaPreparat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumire" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="LegaturaMeniuComanda" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_meniu" Type="int" Mode="In" />
+    <Parameter Name="id_comanda" Type="int" Mode="In" />
+    <Parameter Name="nrBucati" Type="int" Mode="In" />
+  </Function>
+  <Function Name="LegaturaPreparatAlergen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_preparat" Type="int" Mode="In" />
+    <Parameter Name="id_alergen" Type="int" Mode="In" />
+  </Function>
+  <Function Name="LegaturaPreparatComanda" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_preparat" Type="int" Mode="In" />
+    <Parameter Name="id_comanda" Type="int" Mode="In" />
+    <Parameter Name="nrBucati" Type="int" Mode="In" />
+  </Function>
+  <Function Name="LegaturaPreparatMeniu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_preparat" Type="int" Mode="In" />
+    <Parameter Name="id_meniu" Type="int" Mode="In" />
+    <Parameter Name="cantitate" Type="float" Mode="In" />
+  </Function>
+  <Function Name="LegaturaStatusComanda" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_comanda" Type="int" Mode="In" />
+    <Parameter Name="id_status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ModificaAlergen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumire" Type="varchar" Mode="In" />
+    <Parameter Name="denumireNoua" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ModificaCategorie" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumire" Type="varchar" Mode="In" />
+    <Parameter Name="denumireNoua" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ModificaMeniu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumire" Type="varchar" Mode="In" />
+    <Parameter Name="reducere" Type="float" Mode="In" />
+  </Function>
+  <Function Name="ModificaNumeMeniu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumire" Type="varchar" Mode="In" />
+    <Parameter Name="denumireNoua" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ModificaPreparat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="denPreparat" Type="varchar" Mode="In" />
+    <Parameter Name="pret" Type="float" Mode="In" />
+    <Parameter Name="cantitate" Type="float" Mode="In" />
+    <Parameter Name="cantitate_totala" Type="float" Mode="In" />
+    <Parameter Name="id_categorie" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ModificaPretPreparatInMeniu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumireMeniu" Type="varchar" Mode="In" />
+    <Parameter Name="denumirePreparat" Type="varchar" Mode="In" />
+    <Parameter Name="cantitateNoua" Type="float" Mode="In" />
+  </Function>
+  <Function Name="ModificareAlergen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumireCurenta" Type="varchar" Mode="In" />
+    <Parameter Name="denumireNoua" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ModificarePretComanda" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="icomanda" Type="int" Mode="In" />
+    <Parameter Name="denumirePreparat" Type="varchar" Mode="In" />
+    <Parameter Name="cantitatePreparat" Type="float" Mode="In" />
+  </Function>
+  <Function Name="ModificarePretComandaMeniu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="icomanda" Type="int" Mode="In" />
+    <Parameter Name="denMeniu" Type="varchar" Mode="In" />
+    <Parameter Name="cantitatePreparat" Type="float" Mode="In" />
+  </Function>
+  <Function Name="ModificarePretMeniu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denMeniu" Type="varchar" Mode="In" />
+    <Parameter Name="denPreparat" Type="varchar" Mode="In" />
+    <Parameter Name="cant" Type="float" Mode="In" />
+  </Function>
+  <Function Name="ModificaStare" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_comanda" Type="int" Mode="In" />
+    <Parameter Name="statusNou" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectareAlergen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="alergenPrimit" Type="varchar" Mode="In" />
+    <Parameter Name="id_alergen" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="SelectareAlergenPreparat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_alergen" Type="int" Mode="In" />
+    <Parameter Name="id_preparat" Type="int" Mode="In" />
+    <Parameter Name="id_alergenPreparat" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="SelectareCantitateProdus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumireProdus" Type="varchar" Mode="In" />
+    <Parameter Name="cantitateP" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="SelectareCantProdusInMeniu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_preparat" Type="varchar" Mode="In" />
+    <Parameter Name="cantitateInMeniu" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="SelectareCategorie" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="categoriePrimita" Type="varchar" Mode="In" />
+    <Parameter Name="id_categorie" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="SelectareCont" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="emailPrimit" Type="varchar" Mode="In" />
+    <Parameter Name="id_cont" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="SelectareMeniu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="meniuPrimit" Type="varchar" Mode="In" />
+    <Parameter Name="id_meniu" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="SelectarePreparat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="preparatPrimit" Type="varchar" Mode="In" />
+    <Parameter Name="id_preparat" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="SelectarePretMeniu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumireMeniu" Type="varchar" Mode="In" />
+    <Parameter Name="pret_meniu" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="SelectarePretProdus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumireProdus" Type="varchar" Mode="In" />
+    <Parameter Name="pret_produs" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="StergeAlergen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumire" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="StergeAlergenDupaID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="alergen" Type="int" Mode="In" />
+    <Parameter Name="preparat" Type="int" Mode="In" />
+  </Function>
+  <Function Name="StergeCategorie" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumire" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="StergeMeniu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumire" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="StergeMeniuDinCos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumire" Type="varchar" Mode="In" />
+    <Parameter Name="id_comanda" Type="int" Mode="In" />
+  </Function>
+  <Function Name="StergePoza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_foto" Type="int" Mode="In" />
+    <Parameter Name="id_preparat" Type="int" Mode="In" />
+  </Function>
+  <Function Name="StergePreparat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumire" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="StergePreparat2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_preparat" Type="int" Mode="In" />
+  </Function>
+  <Function Name="stergePreparatDinCos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumire" Type="varchar" Mode="In" />
+    <Parameter Name="id_comanda" Type="int" Mode="In" />
+  </Function>
+  <Function Name="StergePreparatInMeniu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="denumireMeniu" Type="varchar" Mode="In" />
+    <Parameter Name="denumirePreparat" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="TrimiteComanda" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VerificaContComanda" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="RestaurantModelStoreContainer">
+    <EntitySet Name="Alergen" EntityType="Self.Alergen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AlergenPreparat" EntityType="Self.AlergenPreparat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comanda" EntityType="Self.Comanda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cont" EntityType="Self.Cont" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetaliiCont" EntityType="Self.DetaliiCont" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fotografie" EntityType="Self.Fotografie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Meniu" EntityType="Self.Meniu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MeniuComanda" EntityType="Self.MeniuComanda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MeniuPreparat" EntityType="Self.MeniuPreparat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Preparat" EntityType="Self.Preparat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PreparatComanda" EntityType="Self.PreparatComanda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StatusComanda" EntityType="Self.StatusComanda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StatusulComenzii" EntityType="Self.StatusulComenzii" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__AlergenPr__id_al__31EC6D26" Association="Self.FK__AlergenPr__id_al__31EC6D26">
+      <End Role="Alergen" EntitySet="Alergen" />
+      <End Role="AlergenPreparat" EntitySet="AlergenPreparat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AlergenPr__id_pr__30F848ED" Association="Self.FK__AlergenPr__id_pr__30F848ED">
+      <End Role="Preparat" EntitySet="Preparat" />
+      <End Role="AlergenPreparat" EntitySet="AlergenPreparat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Comanda__id_cont__44FF419A" Association="Self.FK__Comanda__id_cont__44FF419A">
+      <End Role="Cont" EntitySet="Cont" />
+      <End Role="Comanda" EntitySet="Comanda" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Comanda__id_stat__440B1D61" Association="Self.FK__Comanda__id_stat__440B1D61">
+      <End Role="StatusComanda" EntitySet="StatusComanda" />
+      <End Role="Comanda" EntitySet="Comanda" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DetaliiCo__id_co__7C4F7684" Association="Self.FK__DetaliiCo__id_co__7C4F7684">
+      <End Role="Cont" EntitySet="Cont" />
+      <End Role="DetaliiCont" EntitySet="DetaliiCont" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Fotografi__id_pr__34C8D9D1" Association="Self.FK__Fotografi__id_pr__34C8D9D1">
+      <End Role="Preparat" EntitySet="Preparat" />
+      <End Role="Fotografie" EntitySet="Fotografie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MeniuComa__id_co__03F0984C" Association="Self.FK__MeniuComa__id_co__03F0984C">
+      <End Role="Comanda" EntitySet="Comanda" />
+      <End Role="MeniuComanda" EntitySet="MeniuComanda" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MeniuComa__id_me__02FC7413" Association="Self.FK__MeniuComa__id_me__02FC7413">
+      <End Role="Meniu" EntitySet="Meniu" />
+      <End Role="MeniuComanda" EntitySet="MeniuComanda" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MeniuPrep__id_me__3A81B327" Association="Self.FK__MeniuPrep__id_me__3A81B327">
+      <End Role="Meniu" EntitySet="Meniu" />
+      <End Role="MeniuPreparat" EntitySet="MeniuPreparat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MeniuPrep__id_pr__398D8EEE" Association="Self.FK__MeniuPrep__id_pr__398D8EEE">
+      <End Role="Preparat" EntitySet="Preparat" />
+      <End Role="MeniuPreparat" EntitySet="MeniuPreparat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Preparat__id_cat__49C3F6B7" Association="Self.FK__Preparat__id_cat__49C3F6B7">
+      <End Role="Categorie" EntitySet="Categorie" />
+      <End Role="Preparat" EntitySet="Preparat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PreparatC__id_co__48CFD27E" Association="Self.FK__PreparatC__id_co__48CFD27E">
+      <End Role="Comanda" EntitySet="Comanda" />
+      <End Role="PreparatComanda" EntitySet="PreparatComanda" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PreparatC__id_pr__47DBAE45" Association="Self.FK__PreparatC__id_pr__47DBAE45">
+      <End Role="Preparat" EntitySet="Preparat" />
+      <End Role="PreparatComanda" EntitySet="PreparatComanda" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StatusulC__id_co__5BE2A6F2" Association="Self.FK__StatusulC__id_co__5BE2A6F2">
+      <End Role="Comanda" EntitySet="Comanda" />
+      <End Role="StatusulComenzii" EntitySet="StatusulComenzii" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StatusulC__id_st__5CD6CB2B" Association="Self.FK__StatusulC__id_st__5CD6CB2B">
+      <End Role="StatusComanda" EntitySet="StatusComanda" />
+      <End Role="StatusulComenzii" EntitySet="StatusulComenzii" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

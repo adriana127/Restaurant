@@ -1,0 +1,108 @@
+﻿<UserControl x:Class="Tema3.View.PreparateView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Tema3.View"
+             mc:Ignorable="d" 
+            d:DesignHeight="641.4" d:DesignWidth="883.2">
+
+    <Grid  Margin="0,0,-6.2,1" RenderTransformOrigin="0.707,0.67"  Height="641.4" Width="883.2">
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\Adriana\Desktop\Restaurant\background.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="75*"/>
+            <ColumnDefinition Width="615*"/>
+            <ColumnDefinition Width="194*"/>
+        </Grid.ColumnDefinitions>
+
+        <Rectangle Fill="#ffc815" HorizontalAlignment="Left" Height="611" Stroke="Black" VerticalAlignment="Top" Width="185" Grid.ColumnSpan="2"/>
+        <Image Source="C:\Users\Adriana\Desktop\Restaurant\user.png" HorizontalAlignment="Left" Height="70" Margin="22,5,0,0" VerticalAlignment="Top" Width="84" Grid.Column="1"/>
+        <Label Content="Stefan Adriana" HorizontalAlignment="Left" Margin="6,5,0,0" VerticalAlignment="Top" Height="26" Width="86" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="1.411"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="{Binding User.statut}" HorizontalAlignment="Left" Margin="24,30,0,0" VerticalAlignment="Top" Height="26" Width="51"/>
+        <Button Command="{Binding goToPreparate}"  Content="Preparate" HorizontalAlignment="Left" Margin="0,215,0,0" VerticalAlignment="Top" Width="185" Height="55" Grid.ColumnSpan="2"/>
+        <Button Command="{Binding goToMeniuri}"  Content="Meniuri" HorizontalAlignment="Left" Margin="0,275,0,0" VerticalAlignment="Top" Width="185" Height="55" Grid.ColumnSpan="2"/>
+        <Button Command="{Binding goToCart}"  Content="Cos" HorizontalAlignment="Left" Margin="0,465,0,0" VerticalAlignment="Top" Width="185" Height="55" Grid.ColumnSpan="2"/>
+
+        <Button  Command="{Binding goToAlergeni}" Visibility="{Binding Visibility}"  Content="Alergeni" HorizontalAlignment="Left" Margin="0,400,0,0" VerticalAlignment="Top" Width="185" Height="60" Grid.ColumnSpan="2"/>
+        <Border BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Left" Margin="109.8,0,0,0" VerticalAlignment="Top" Width="698" Height="611"  Grid.ColumnSpan="2" Grid.Column="1">
+            <Grid Background="Transparent" Width="710" Height="611">
+                <TextBox Background="Black" Text="{Binding PreparatCautat,UpdateSourceTrigger=PropertyChanged}"   x:Name="denumirePreparat" Margin="40,25,394,559" FontFamily="Tempus Sans ITC" FontSize="16" Foreground="Yellow" Opacity="0.7">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                            <Style.Resources>
+                                <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                    <VisualBrush.Visual>
+                                        <Label Content="Search..." Foreground="Yellow" />
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                                <VisualBrush x:Key="CueBannerBrush1"  AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                    <VisualBrush.Visual>
+                                        <Label Content="" Foreground="Yellow" />
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Style.Resources>
+
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                </Trigger>
+                                <Trigger Property="Text" Value="{x:Null}">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                </Trigger>
+                                <Trigger Property="IsKeyboardFocused" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush1}"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+                <Button Command="{Binding Search}" x:Name="SearchPreparatButton" Content="Search" HorizontalAlignment="Left" Height="26" Margin="320,25,0,0"  VerticalAlignment="Top" Width="55"/>
+
+                <ListView x:Name="prepList"  Background="Transparent" BorderBrush="Black" ItemsSource="{Binding PreparateList, UpdateSourceTrigger=PropertyChanged}" ItemTemplate="{StaticResource listBoxTemplate}" 
+                SelectedItem="{Binding SelectedProduct}"   Height="541" Margin="0,70,0,0" VerticalAlignment="Top">
+
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="2"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Margin" Value="5"/>
+                            <Setter Property="Height" Value="250"/>
+                            <!-- For setting height of control-->
+                            <Setter Property="Width" Value="250"/>
+                            <!-- For setting widthof control-->
+
+                            <Setter Property="IsSelected"  Value="{Binding goToDetailsScreen}"/>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+
+                </ListView>
+                <Button Visibility="{Binding Visibility}" Command="{Binding goToNewPrep}" Content="Adauga Preparat" HorizontalAlignment="Left" Margin="570,10,0,0" VerticalAlignment="Top" Width="80" Height="42" FontSize="10"/>
+                <ComboBox  x:Name="categorii" ItemTemplate="{StaticResource categoriiListBox}"
+                  ItemsSource="{Binding ListaCategorii, UpdateSourceTrigger=PropertyChanged}" 
+                  SelectedItem="{Binding CategorieSchimbata, UpdateSourceTrigger=PropertyChanged}"
+                  
+                  HorizontalAlignment="Left" Margin="395,25,0,0" VerticalAlignment="Top" Width="120" Height="27">
+
+                </ComboBox>
+                <Label  Content="Categorii" HorizontalAlignment="Left" Margin="395,0,0,0" VerticalAlignment="Top" Width="90" Foreground="#FFEEA31A"/>
+            </Grid>
+        </Border>
+        <Button  Command="{Binding goToCategorii}" Visibility="{Binding Visibility}"  Content="Categorii" HorizontalAlignment="Left" Margin="0,335,0,0" VerticalAlignment="Top" Width="185" Height="60" Grid.ColumnSpan="2"/>
+        <Button Command="{Binding goToComenzi}"  Content="Comenzi" HorizontalAlignment="Left" Margin="0,525,0,0" VerticalAlignment="Top" Width="185" Height="55" Grid.ColumnSpan="2"/>
+    </Grid>
+    
+</UserControl>

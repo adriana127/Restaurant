@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="Tema3.View.AdaugaPreparatView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Tema3.View"
+             mc:Ignorable="d" 
+            d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid  Margin="0,0,-6.2,1" RenderTransformOrigin="0.707,0.67"  Height="641.4" Width="883.2">
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\Adriana\Desktop\Restaurant\background.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="75*"/>
+            <ColumnDefinition Width="615*"/>
+            <ColumnDefinition Width="194*"/>
+        </Grid.ColumnDefinitions>
+
+        <Rectangle Fill="#ffc815" HorizontalAlignment="Left" Height="611" Stroke="Black" VerticalAlignment="Top" Width="185" Grid.ColumnSpan="2"/>
+        <Image Source="C:\Users\Adriana\Desktop\Restaurant\user.png"  HorizontalAlignment="Left" Height="70" Margin="22,5,0,0" VerticalAlignment="Top" Width="84" Grid.Column="1"/>
+        <Label Content="Stefan Adriana" HorizontalAlignment="Left" Margin="6,5,0,0" VerticalAlignment="Top" Height="26" Width="86" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="1.411"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="{Binding User.statut}" HorizontalAlignment="Left" Margin="24,30,0,0" VerticalAlignment="Top" Height="26" Width="51"/>
+        <Button Command="{Binding goToPreparate}"  Content="Preparate" HorizontalAlignment="Left" Margin="0,215,0,0" VerticalAlignment="Top" Width="185" Height="55" Grid.ColumnSpan="2"/>
+        <Button Command="{Binding goToMeniuri}"  Content="Meniuri" HorizontalAlignment="Left" Margin="0,275,0,0" VerticalAlignment="Top" Width="185" Height="55" Grid.ColumnSpan="2"/>
+        <Button Command="{Binding goToCart}"  Content="Cos" HorizontalAlignment="Left" Margin="0,465,0,0" VerticalAlignment="Top" Width="185" Height="55" Grid.ColumnSpan="2"/>
+
+        <Button  Command="{Binding goToAlergeni}" Visibility="{Binding Visibility}"  Content="Alergeni" HorizontalAlignment="Left" Margin="0,400,0,0" VerticalAlignment="Top" Width="185" Height="60" Grid.ColumnSpan="2"/>
+        <Border BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Left" Margin="109.8,0,0,0" VerticalAlignment="Top" Width="698" Height="611"  Grid.ColumnSpan="2" Grid.Column="1">
+            <Grid Background="Transparent" Width="710" Height="611">
+
+                <TextBox x:Name="denumire" Text="{Binding Denumire}" HorizontalAlignment="Left" Height="35" Margin="110,50,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="230"/>
+        <TextBox x:Name="pret" Text="{Binding Pret}"  HorizontalAlignment="Left" Height="30" Margin="110,110,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="230"/>
+        <TextBox x:Name="cantitate" Text="{Binding Cantitate}" HorizontalAlignment="Left" Height="30" Margin="110,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
+                <Label Foreground="#ffc815" Content="Denumire Preparat" HorizontalAlignment="Left" Margin="110,10,0,0" VerticalAlignment="Top"/>
+                <Label Foreground="#ffc815" Content="Pret" HorizontalAlignment="Left" Margin="110,79,0,0" VerticalAlignment="Top"/>
+                <Label Foreground="#ffc815" Content="Cantitate" HorizontalAlignment="Left" Margin="110,139,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.769,2.57"/>
+        <TextBox x:Name="cantitateTotala" Text="{Binding Cantitate_Totala}" HorizontalAlignment="Left" Height="30" Margin="110,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
+                <Label Foreground="#ffc815" Content="Cantitate Totala" HorizontalAlignment="Left" Margin="110,205,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.769,2.57"/>
+
+
+        <ListView x:Name="categorii" Margin="110,297,0,155" ItemsSource="{Binding Categorii, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding CategorieAleasa, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" 
+                  HorizontalContentAlignment="Left" Width="230">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Categorie" Width="250" DisplayMemberBinding="{Binding denumire, UpdateSourceTrigger=PropertyChanged}" />
+
+                </GridView>
+            </ListView.View>
+
+        </ListView>
+
+
+
+                <Label Foreground="#ffc815" Content="Categorie" HorizontalAlignment="Left" Margin="110,266,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.769,2.57"/>
+
+        <Button Content="Adauga" Command="{Binding AdaugaPrep}" HorizontalAlignment="Left" Margin="265,505,0,0" VerticalAlignment="Top" Width="170" Height="96"/>
+        <Button Command="{Binding AdaugaPoza}" Content="Adauga Poza" HorizontalAlignment="Left" Margin="535,86,0,0" VerticalAlignment="Top" Width="95" Height="54"/>
+        <Button Command="{Binding StergePoza}" Content="Sterge Poza" HorizontalAlignment="Left" Margin="400,86,0,0" VerticalAlignment="Top" Width="95" Height="54"/>
+        <ListBox ItemsSource="{Binding Fotografii, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding PozaDeSters}" ItemTemplate="{StaticResource imageListTemplate}" HorizontalAlignment="Left" Height="286" Margin="400,170,0,0" VerticalAlignment="Top" Width="230">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="2"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+
+        </ListBox>
+
+    </Grid>
+    </Border>
+    <Button  Command="{Binding goToCategorii}" Visibility="{Binding Visibility}"  Content="Categorii" HorizontalAlignment="Left" Margin="0,335,0,0" VerticalAlignment="Top" Width="185" Height="60" Grid.ColumnSpan="2"/>
+        <Button Command="{Binding goToComenzi}"  Content="Comenzi" HorizontalAlignment="Left" Margin="0,525,0,0" VerticalAlignment="Top" Width="185" Height="55" Grid.ColumnSpan="2"/>
+
+    </Grid>
+
+</UserControl>
+

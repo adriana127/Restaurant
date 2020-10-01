@@ -1,0 +1,868 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RestaurantModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Alergen">
+    <Key>
+      <PropertyRef Name="id_alergen" />
+    </Key>
+    <Property Name="id_alergen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="denumire" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AlergenPreparats" Relationship="Self.FK__AlergenPr__id_al__31EC6D26" FromRole="Alergen" ToRole="AlergenPreparat" />
+  </EntityType>
+  <EntityType Name="AlergenPreparat">
+    <Key>
+      <PropertyRef Name="id_AlergenPreparat" />
+    </Key>
+    <Property Name="id_AlergenPreparat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_preparat" Type="Int32" />
+    <Property Name="id_alergen" Type="Int32" />
+    <NavigationProperty Name="Alergen" Relationship="Self.FK__AlergenPr__id_al__31EC6D26" FromRole="AlergenPreparat" ToRole="Alergen" />
+    <NavigationProperty Name="Preparat" Relationship="Self.FK__AlergenPr__id_pr__30F848ED" FromRole="AlergenPreparat" ToRole="Preparat" />
+  </EntityType>
+  <EntityType Name="Categorie">
+    <Key>
+      <PropertyRef Name="id_categorie" />
+    </Key>
+    <Property Name="id_categorie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="denumire" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Preparats" Relationship="Self.FK__Preparat__id_cat__49C3F6B7" FromRole="Categorie" ToRole="Preparat" />
+  </EntityType>
+  <EntityType Name="Comanda">
+    <Key>
+      <PropertyRef Name="id_comanda" />
+    </Key>
+    <Property Name="id_comanda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Discount" Type="Double" />
+    <Property Name="id_status" Type="Int32" />
+    <Property Name="id_cont" Type="Int32" />
+    <Property Name="pret" Type="Double" />
+    <Property Name="timp" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Cont" Relationship="Self.FK__Comanda__id_cont__44FF419A" FromRole="Comanda" ToRole="Cont" />
+    <NavigationProperty Name="StatusComanda" Relationship="Self.FK__Comanda__id_stat__440B1D61" FromRole="Comanda" ToRole="StatusComanda" />
+    <NavigationProperty Name="MeniuComandas" Relationship="Self.FK__MeniuComa__id_co__03F0984C" FromRole="Comanda" ToRole="MeniuComanda" />
+    <NavigationProperty Name="PreparatComandas" Relationship="Self.FK__PreparatC__id_co__48CFD27E" FromRole="Comanda" ToRole="PreparatComanda" />
+    <NavigationProperty Name="StatusulComenziis" Relationship="Self.FK__StatusulC__id_co__5BE2A6F2" FromRole="Comanda" ToRole="StatusulComenzii" />
+  </EntityType>
+  <EntityType Name="Cont">
+    <Key>
+      <PropertyRef Name="id_cont" />
+    </Key>
+    <Property Name="id_cont" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="parola" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="statut" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Comandas" Relationship="Self.FK__Comanda__id_cont__44FF419A" FromRole="Cont" ToRole="Comanda" />
+    <NavigationProperty Name="DetaliiConts" Relationship="Self.FK__DetaliiCo__id_co__7C4F7684" FromRole="Cont" ToRole="DetaliiCont" />
+  </EntityType>
+  <EntityType Name="DetaliiCont">
+    <Key>
+      <PropertyRef Name="id_detalii" />
+    </Key>
+    <Property Name="id_detalii" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nume" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="prenume" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="adresa" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="telefon" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="id_cont" Type="Int32" />
+    <NavigationProperty Name="Cont" Relationship="Self.FK__DetaliiCo__id_co__7C4F7684" FromRole="DetaliiCont" ToRole="Cont" />
+  </EntityType>
+  <EntityType Name="Fotografie">
+    <Key>
+      <PropertyRef Name="id_foto" />
+    </Key>
+    <Property Name="id_foto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="foto_path" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="id_preparat" Type="Int32" />
+    <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Preparat" Relationship="Self.FK__Fotografi__id_pr__34C8D9D1" FromRole="Fotografie" ToRole="Preparat" />
+  </EntityType>
+  <EntityType Name="Meniu">
+    <Key>
+      <PropertyRef Name="id_meniu" />
+    </Key>
+    <Property Name="id_meniu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pret" Type="Double" />
+    <Property Name="reducere" Type="Double" />
+    <Property Name="denumireMeniu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MeniuComandas" Relationship="Self.FK__MeniuComa__id_me__02FC7413" FromRole="Meniu" ToRole="MeniuComanda" />
+    <NavigationProperty Name="MeniuPreparats" Relationship="Self.FK__MeniuPrep__id_me__3A81B327" FromRole="Meniu" ToRole="MeniuPreparat" />
+  </EntityType>
+  <EntityType Name="MeniuComanda">
+    <Key>
+      <PropertyRef Name="id_meniucomanda" />
+    </Key>
+    <Property Name="id_meniucomanda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_meniu" Type="Int32" />
+    <Property Name="id_comanda" Type="Int32" />
+    <Property Name="nrBucati" Type="Int32" />
+    <NavigationProperty Name="Comanda" Relationship="Self.FK__MeniuComa__id_co__03F0984C" FromRole="MeniuComanda" ToRole="Comanda" />
+    <NavigationProperty Name="Meniu" Relationship="Self.FK__MeniuComa__id_me__02FC7413" FromRole="MeniuComanda" ToRole="Meniu" />
+  </EntityType>
+  <EntityType Name="MeniuPreparat">
+    <Key>
+      <PropertyRef Name="id_meniuPreparat" />
+    </Key>
+    <Property Name="id_meniuPreparat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_preparat" Type="Int32" />
+    <Property Name="id_meniu" Type="Int32" />
+    <Property Name="cantitate" Type="Double" />
+    <NavigationProperty Name="Meniu" Relationship="Self.FK__MeniuPrep__id_me__3A81B327" FromRole="MeniuPreparat" ToRole="Meniu" />
+    <NavigationProperty Name="Preparat" Relationship="Self.FK__MeniuPrep__id_pr__398D8EEE" FromRole="MeniuPreparat" ToRole="Preparat" />
+  </EntityType>
+  <EntityType Name="Preparat">
+    <Key>
+      <PropertyRef Name="id_preparat" />
+    </Key>
+    <Property Name="id_preparat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="denumire" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="pret" Type="Double" />
+    <Property Name="cantitate" Type="Int32" />
+    <Property Name="cantitate_totala" Type="Int32" />
+    <Property Name="id_categorie" Type="Int32" />
+    <Property Name="disponibilitate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AlergenPreparats" Relationship="Self.FK__AlergenPr__id_pr__30F848ED" FromRole="Preparat" ToRole="AlergenPreparat" />
+    <NavigationProperty Name="Categorie" Relationship="Self.FK__Preparat__id_cat__49C3F6B7" FromRole="Preparat" ToRole="Categorie" />
+    <NavigationProperty Name="Fotografies" Relationship="Self.FK__Fotografi__id_pr__34C8D9D1" FromRole="Preparat" ToRole="Fotografie" />
+    <NavigationProperty Name="MeniuPreparats" Relationship="Self.FK__MeniuPrep__id_pr__398D8EEE" FromRole="Preparat" ToRole="MeniuPreparat" />
+    <NavigationProperty Name="PreparatComandas" Relationship="Self.FK__PreparatC__id_pr__47DBAE45" FromRole="Preparat" ToRole="PreparatComanda" />
+  </EntityType>
+  <EntityType Name="PreparatComanda">
+    <Key>
+      <PropertyRef Name="id_PreparatComanda" />
+    </Key>
+    <Property Name="id_PreparatComanda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_preparat" Type="Int32" />
+    <Property Name="id_comanda" Type="Int32" />
+    <Property Name="nrBucati" Type="Int32" />
+    <NavigationProperty Name="Comanda" Relationship="Self.FK__PreparatC__id_co__48CFD27E" FromRole="PreparatComanda" ToRole="Comanda" />
+    <NavigationProperty Name="Preparat" Relationship="Self.FK__PreparatC__id_pr__47DBAE45" FromRole="PreparatComanda" ToRole="Preparat" />
+  </EntityType>
+  <EntityType Name="StatusComanda">
+    <Key>
+      <PropertyRef Name="id_status" />
+    </Key>
+    <Property Name="id_status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="denumire" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Comandas" Relationship="Self.FK__Comanda__id_stat__440B1D61" FromRole="StatusComanda" ToRole="Comanda" />
+    <NavigationProperty Name="StatusulComenziis" Relationship="Self.FK__StatusulC__id_st__5CD6CB2B" FromRole="StatusComanda" ToRole="StatusulComenzii" />
+  </EntityType>
+  <EntityType Name="StatusulComenzii">
+    <Key>
+      <PropertyRef Name="id_StatusulComenzii" />
+    </Key>
+    <Property Name="id_StatusulComenzii" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_comanda" Type="Int32" />
+    <Property Name="id_status" Type="Int32" />
+    <NavigationProperty Name="Comanda" Relationship="Self.FK__StatusulC__id_co__5BE2A6F2" FromRole="StatusulComenzii" ToRole="Comanda" />
+    <NavigationProperty Name="StatusComanda" Relationship="Self.FK__StatusulC__id_st__5CD6CB2B" FromRole="StatusulComenzii" ToRole="StatusComanda" />
+  </EntityType>
+  <Association Name="FK__AlergenPr__id_al__31EC6D26">
+    <End Role="Alergen" Type="Self.Alergen" Multiplicity="0..1" />
+    <End Role="AlergenPreparat" Type="Self.AlergenPreparat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alergen">
+        <PropertyRef Name="id_alergen" />
+      </Principal>
+      <Dependent Role="AlergenPreparat">
+        <PropertyRef Name="id_alergen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AlergenPr__id_pr__30F848ED">
+    <End Role="Preparat" Type="Self.Preparat" Multiplicity="0..1" />
+    <End Role="AlergenPreparat" Type="Self.AlergenPreparat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Preparat">
+        <PropertyRef Name="id_preparat" />
+      </Principal>
+      <Dependent Role="AlergenPreparat">
+        <PropertyRef Name="id_preparat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Preparat__id_cat__49C3F6B7">
+    <End Role="Categorie" Type="Self.Categorie" Multiplicity="0..1" />
+    <End Role="Preparat" Type="Self.Preparat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorie">
+        <PropertyRef Name="id_categorie" />
+      </Principal>
+      <Dependent Role="Preparat">
+        <PropertyRef Name="id_categorie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Comanda__id_cont__44FF419A">
+    <End Role="Cont" Type="Self.Cont" Multiplicity="0..1" />
+    <End Role="Comanda" Type="Self.Comanda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cont">
+        <PropertyRef Name="id_cont" />
+      </Principal>
+      <Dependent Role="Comanda">
+        <PropertyRef Name="id_cont" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Comanda__id_stat__440B1D61">
+    <End Role="StatusComanda" Type="Self.StatusComanda" Multiplicity="0..1" />
+    <End Role="Comanda" Type="Self.Comanda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusComanda">
+        <PropertyRef Name="id_status" />
+      </Principal>
+      <Dependent Role="Comanda">
+        <PropertyRef Name="id_status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MeniuComa__id_co__03F0984C">
+    <End Role="Comanda" Type="Self.Comanda" Multiplicity="0..1" />
+    <End Role="MeniuComanda" Type="Self.MeniuComanda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comanda">
+        <PropertyRef Name="id_comanda" />
+      </Principal>
+      <Dependent Role="MeniuComanda">
+        <PropertyRef Name="id_comanda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PreparatC__id_co__48CFD27E">
+    <End Role="Comanda" Type="Self.Comanda" Multiplicity="0..1" />
+    <End Role="PreparatComanda" Type="Self.PreparatComanda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comanda">
+        <PropertyRef Name="id_comanda" />
+      </Principal>
+      <Dependent Role="PreparatComanda">
+        <PropertyRef Name="id_comanda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StatusulC__id_co__5BE2A6F2">
+    <End Role="Comanda" Type="Self.Comanda" Multiplicity="0..1" />
+    <End Role="StatusulComenzii" Type="Self.StatusulComenzii" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comanda">
+        <PropertyRef Name="id_comanda" />
+      </Principal>
+      <Dependent Role="StatusulComenzii">
+        <PropertyRef Name="id_comanda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DetaliiCo__id_co__7C4F7684">
+    <End Role="Cont" Type="Self.Cont" Multiplicity="0..1" />
+    <End Role="DetaliiCont" Type="Self.DetaliiCont" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cont">
+        <PropertyRef Name="id_cont" />
+      </Principal>
+      <Dependent Role="DetaliiCont">
+        <PropertyRef Name="id_cont" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Fotografi__id_pr__34C8D9D1">
+    <End Role="Preparat" Type="Self.Preparat" Multiplicity="0..1" />
+    <End Role="Fotografie" Type="Self.Fotografie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Preparat">
+        <PropertyRef Name="id_preparat" />
+      </Principal>
+      <Dependent Role="Fotografie">
+        <PropertyRef Name="id_preparat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MeniuComa__id_me__02FC7413">
+    <End Role="Meniu" Type="Self.Meniu" Multiplicity="0..1" />
+    <End Role="MeniuComanda" Type="Self.MeniuComanda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Meniu">
+        <PropertyRef Name="id_meniu" />
+      </Principal>
+      <Dependent Role="MeniuComanda">
+        <PropertyRef Name="id_meniu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MeniuPrep__id_me__3A81B327">
+    <End Role="Meniu" Type="Self.Meniu" Multiplicity="0..1" />
+    <End Role="MeniuPreparat" Type="Self.MeniuPreparat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Meniu">
+        <PropertyRef Name="id_meniu" />
+      </Principal>
+      <Dependent Role="MeniuPreparat">
+        <PropertyRef Name="id_meniu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MeniuPrep__id_pr__398D8EEE">
+    <End Role="Preparat" Type="Self.Preparat" Multiplicity="0..1" />
+    <End Role="MeniuPreparat" Type="Self.MeniuPreparat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Preparat">
+        <PropertyRef Name="id_preparat" />
+      </Principal>
+      <Dependent Role="MeniuPreparat">
+        <PropertyRef Name="id_preparat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PreparatC__id_pr__47DBAE45">
+    <End Role="Preparat" Type="Self.Preparat" Multiplicity="0..1" />
+    <End Role="PreparatComanda" Type="Self.PreparatComanda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Preparat">
+        <PropertyRef Name="id_preparat" />
+      </Principal>
+      <Dependent Role="PreparatComanda">
+        <PropertyRef Name="id_preparat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StatusulC__id_st__5CD6CB2B">
+    <End Role="StatusComanda" Type="Self.StatusComanda" Multiplicity="0..1" />
+    <End Role="StatusulComenzii" Type="Self.StatusulComenzii" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusComanda">
+        <PropertyRef Name="id_status" />
+      </Principal>
+      <Dependent Role="StatusulComenzii">
+        <PropertyRef Name="id_status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RestaurantEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Alergens" EntityType="Self.Alergen" />
+    <EntitySet Name="AlergenPreparats" EntityType="Self.AlergenPreparat" />
+    <EntitySet Name="Categories" EntityType="Self.Categorie" />
+    <EntitySet Name="Comandas" EntityType="Self.Comanda" />
+    <EntitySet Name="Conts" EntityType="Self.Cont" />
+    <EntitySet Name="DetaliiConts" EntityType="Self.DetaliiCont" />
+    <EntitySet Name="Fotografies" EntityType="Self.Fotografie" />
+    <EntitySet Name="Menius" EntityType="Self.Meniu" />
+    <EntitySet Name="MeniuComandas" EntityType="Self.MeniuComanda" />
+    <EntitySet Name="MeniuPreparats" EntityType="Self.MeniuPreparat" />
+    <EntitySet Name="Preparats" EntityType="Self.Preparat" />
+    <EntitySet Name="PreparatComandas" EntityType="Self.PreparatComanda" />
+    <EntitySet Name="StatusComandas" EntityType="Self.StatusComanda" />
+    <EntitySet Name="StatusulComenziis" EntityType="Self.StatusulComenzii" />
+    <AssociationSet Name="FK__AlergenPr__id_al__31EC6D26" Association="Self.FK__AlergenPr__id_al__31EC6D26">
+      <End Role="Alergen" EntitySet="Alergens" />
+      <End Role="AlergenPreparat" EntitySet="AlergenPreparats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AlergenPr__id_pr__30F848ED" Association="Self.FK__AlergenPr__id_pr__30F848ED">
+      <End Role="Preparat" EntitySet="Preparats" />
+      <End Role="AlergenPreparat" EntitySet="AlergenPreparats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Preparat__id_cat__49C3F6B7" Association="Self.FK__Preparat__id_cat__49C3F6B7">
+      <End Role="Categorie" EntitySet="Categories" />
+      <End Role="Preparat" EntitySet="Preparats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Comanda__id_cont__44FF419A" Association="Self.FK__Comanda__id_cont__44FF419A">
+      <End Role="Cont" EntitySet="Conts" />
+      <End Role="Comanda" EntitySet="Comandas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Comanda__id_stat__440B1D61" Association="Self.FK__Comanda__id_stat__440B1D61">
+      <End Role="StatusComanda" EntitySet="StatusComandas" />
+      <End Role="Comanda" EntitySet="Comandas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MeniuComa__id_co__03F0984C" Association="Self.FK__MeniuComa__id_co__03F0984C">
+      <End Role="Comanda" EntitySet="Comandas" />
+      <End Role="MeniuComanda" EntitySet="MeniuComandas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PreparatC__id_co__48CFD27E" Association="Self.FK__PreparatC__id_co__48CFD27E">
+      <End Role="Comanda" EntitySet="Comandas" />
+      <End Role="PreparatComanda" EntitySet="PreparatComandas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StatusulC__id_co__5BE2A6F2" Association="Self.FK__StatusulC__id_co__5BE2A6F2">
+      <End Role="Comanda" EntitySet="Comandas" />
+      <End Role="StatusulComenzii" EntitySet="StatusulComenziis" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DetaliiCo__id_co__7C4F7684" Association="Self.FK__DetaliiCo__id_co__7C4F7684">
+      <End Role="Cont" EntitySet="Conts" />
+      <End Role="DetaliiCont" EntitySet="DetaliiConts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Fotografi__id_pr__34C8D9D1" Association="Self.FK__Fotografi__id_pr__34C8D9D1">
+      <End Role="Preparat" EntitySet="Preparats" />
+      <End Role="Fotografie" EntitySet="Fotografies" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MeniuComa__id_me__02FC7413" Association="Self.FK__MeniuComa__id_me__02FC7413">
+      <End Role="Meniu" EntitySet="Menius" />
+      <End Role="MeniuComanda" EntitySet="MeniuComandas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MeniuPrep__id_me__3A81B327" Association="Self.FK__MeniuPrep__id_me__3A81B327">
+      <End Role="Meniu" EntitySet="Menius" />
+      <End Role="MeniuPreparat" EntitySet="MeniuPreparats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MeniuPrep__id_pr__398D8EEE" Association="Self.FK__MeniuPrep__id_pr__398D8EEE">
+      <End Role="Preparat" EntitySet="Preparats" />
+      <End Role="MeniuPreparat" EntitySet="MeniuPreparats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PreparatC__id_pr__47DBAE45" Association="Self.FK__PreparatC__id_pr__47DBAE45">
+      <End Role="Preparat" EntitySet="Preparats" />
+      <End Role="PreparatComanda" EntitySet="PreparatComandas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StatusulC__id_st__5CD6CB2B" Association="Self.FK__StatusulC__id_st__5CD6CB2B">
+      <End Role="StatusComanda" EntitySet="StatusComandas" />
+      <End Role="StatusulComenzii" EntitySet="StatusulComenziis" />
+    </AssociationSet>
+    <FunctionImport Name="AdaugareAlergen">
+      <Parameter Name="denumire" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AdaugareAlergenPreparat">
+      <Parameter Name="denumireAlergen" Mode="In" Type="String" />
+      <Parameter Name="denumirePreparat" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AdaugareCategorie">
+      <Parameter Name="denumire" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AdaugareComanda">
+      <Parameter Name="discount" Mode="In" Type="Double" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="AdaugareCont">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="parola" Mode="In" Type="String" />
+      <Parameter Name="statut" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AdaugareDetaliiCont">
+      <Parameter Name="nume" Mode="In" Type="String" />
+      <Parameter Name="prenume" Mode="In" Type="String" />
+      <Parameter Name="adresa" Mode="In" Type="String" />
+      <Parameter Name="telefon" Mode="In" Type="Int32" />
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AdaugareMeniu">
+      <Parameter Name="denumire" Mode="In" Type="String" />
+      <Parameter Name="pret" Mode="In" Type="Double" />
+      <Parameter Name="reducere" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="AdaugareMeniuInComanda">
+      <Parameter Name="comanda" Mode="In" Type="Int32" />
+      <Parameter Name="denumiremeniu" Mode="In" Type="String" />
+      <Parameter Name="cantitate" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="AdaugarePoza">
+      <Parameter Name="foto_path" Mode="In" Type="String" />
+      <Parameter Name="id_preparat" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AdaugarePreparat">
+      <Parameter Name="denumire" Mode="In" Type="String" />
+      <Parameter Name="pret" Mode="In" Type="Double" />
+      <Parameter Name="cantitate" Mode="In" Type="Double" />
+      <Parameter Name="cantitate_totala" Mode="In" Type="Double" />
+      <Parameter Name="id_categorie" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AdaugarePreparatCategorie">
+      <Parameter Name="denumireCategorie" Mode="In" Type="String" />
+      <Parameter Name="denumirePreparat" Mode="In" Type="String" />
+      <Parameter Name="pretPreparat" Mode="In" Type="Double" />
+      <Parameter Name="cantPreparat" Mode="In" Type="Double" />
+      <Parameter Name="cantTotalaPreparat" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="AdaugarePreparatInComanda">
+      <Parameter Name="comanda" Mode="In" Type="Int32" />
+      <Parameter Name="denPreparat" Mode="In" Type="String" />
+      <Parameter Name="cantitate" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="AdaugarePreparatInMeniu">
+      <Parameter Name="denumireMeniu" Mode="In" Type="String" />
+      <Parameter Name="denumirePreparat" Mode="In" Type="String" />
+      <Parameter Name="cantitatePreparat" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="AdaugareStatus">
+      <Parameter Name="denumire" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AfisareAlergen" ReturnType="Collection(RestaurantModel.AfisareAlergen_Result)">
+      <Parameter Name="id_alergen" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AfisareAlergeni" ReturnType="Collection(RestaurantModel.AfisareAlergeni_Result)" />
+    <FunctionImport Name="AfisareCategorieDupaID" ReturnType="Collection(RestaurantModel.AfisareCategorieDupaID_Result)">
+      <Parameter Name="id_categorie" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AfisareCategoriePreparat" ReturnType="Collection(RestaurantModel.AfisareCategoriePreparat_Result)">
+      <Parameter Name="denumirePreparat" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AfisareCategorii" ReturnType="Collection(RestaurantModel.AfisareCategorii_Result)" />
+    <FunctionImport Name="AfisareComenziCont" ReturnType="Collection(RestaurantModel.AfisareComenziCont_Result)">
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AfisareDetaliiComandaDupaEmail" ReturnType="Collection(RestaurantModel.AfisareDetaliiComandaDupaEmail_Result)">
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AfisareDetaliiComandaDupaIdComanda" ReturnType="Collection(RestaurantModel.AfisareDetaliiComandaDupaIdComanda_Result)">
+      <Parameter Name="idcomanda" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AfisareDetaliiCont" ReturnType="Collection(RestaurantModel.AfisareDetaliiCont_Result)">
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AfisareListaAlergeniPreparat" ReturnType="Collection(RestaurantModel.AfisareListaAlergeniPreparat_Result)">
+      <Parameter Name="denumirePreparat" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AfisareMeniuriComanda" ReturnType="Collection(RestaurantModel.AfisareMeniuriComanda_Result)">
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AfisarePreparatDupaCategorie" ReturnType="Collection(RestaurantModel.AfisarePreparatDupaCategorie_Result)">
+      <Parameter Name="denumireCategorie" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AfisarePreparatDupaDenumire" ReturnType="Collection(RestaurantModel.AfisarePreparatDupaDenumire_Result)">
+      <Parameter Name="denumire" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AfisarePreparatDupaID" ReturnType="Collection(RestaurantModel.AfisarePreparatDupaID_Result)">
+      <Parameter Name="id_preparat" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AfisarePreparate" ReturnType="Collection(RestaurantModel.AfisarePreparate_Result)" />
+    <FunctionImport Name="AfisarePreparateComanda">
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AfisarePreparateDinMeniu" ReturnType="Collection(RestaurantModel.AfisarePreparateDinMeniu_Result)">
+      <Parameter Name="denumire" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AfisarePreparateMeniu" ReturnType="Collection(RestaurantModel.AfisarePreparateMeniu_Result)">
+      <Parameter Name="denumire" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AplicaReducereMeniu">
+      <Parameter Name="denumire" Mode="In" Type="String" />
+      <Parameter Name="reducere" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="CautaMeniu" ReturnType="Collection(RestaurantModel.CautaMeniu_Result)">
+      <Parameter Name="denumire" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CautaPreparat" ReturnType="Collection(RestaurantModel.CautaPreparat_Result)">
+      <Parameter Name="denumire" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="LegaturaMeniuComanda">
+      <Parameter Name="id_meniu" Mode="In" Type="Int32" />
+      <Parameter Name="id_comanda" Mode="In" Type="Int32" />
+      <Parameter Name="nrBucati" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="LegaturaPreparatAlergen">
+      <Parameter Name="id_preparat" Mode="In" Type="Int32" />
+      <Parameter Name="id_alergen" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="LegaturaPreparatComanda">
+      <Parameter Name="id_preparat" Mode="In" Type="Int32" />
+      <Parameter Name="id_comanda" Mode="In" Type="Int32" />
+      <Parameter Name="nrBucati" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="LegaturaPreparatMeniu">
+      <Parameter Name="id_preparat" Mode="In" Type="Int32" />
+      <Parameter Name="id_meniu" Mode="In" Type="Int32" />
+      <Parameter Name="cantitate" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="LegaturaStatusComanda">
+      <Parameter Name="id_comanda" Mode="In" Type="Int32" />
+      <Parameter Name="id_status" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ModificaAlergen">
+      <Parameter Name="denumire" Mode="In" Type="String" />
+      <Parameter Name="denumireNoua" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ModificaCategorie">
+      <Parameter Name="denumire" Mode="In" Type="String" />
+      <Parameter Name="denumireNoua" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ModificaMeniu">
+      <Parameter Name="denumire" Mode="In" Type="String" />
+      <Parameter Name="reducere" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="ModificaNumeMeniu">
+      <Parameter Name="denumire" Mode="In" Type="String" />
+      <Parameter Name="denumireNoua" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ModificaPreparat">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="denPreparat" Mode="In" Type="String" />
+      <Parameter Name="pret" Mode="In" Type="Double" />
+      <Parameter Name="cantitate" Mode="In" Type="Double" />
+      <Parameter Name="cantitate_totala" Mode="In" Type="Double" />
+      <Parameter Name="id_categorie" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ModificaPretPreparatInMeniu">
+      <Parameter Name="denumireMeniu" Mode="In" Type="String" />
+      <Parameter Name="denumirePreparat" Mode="In" Type="String" />
+      <Parameter Name="cantitateNoua" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="ModificareAlergen">
+      <Parameter Name="denumireCurenta" Mode="In" Type="String" />
+      <Parameter Name="denumireNoua" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ModificarePretComanda">
+      <Parameter Name="icomanda" Mode="In" Type="Int32" />
+      <Parameter Name="denumirePreparat" Mode="In" Type="String" />
+      <Parameter Name="cantitatePreparat" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="ModificarePretComandaMeniu">
+      <Parameter Name="icomanda" Mode="In" Type="Int32" />
+      <Parameter Name="denMeniu" Mode="In" Type="String" />
+      <Parameter Name="cantitatePreparat" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="ModificarePretMeniu">
+      <Parameter Name="denMeniu" Mode="In" Type="String" />
+      <Parameter Name="denPreparat" Mode="In" Type="String" />
+      <Parameter Name="cant" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="SelectareAlergen">
+      <Parameter Name="alergenPrimit" Mode="In" Type="String" />
+      <Parameter Name="id_alergen" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SelectareAlergenPreparat">
+      <Parameter Name="id_alergen" Mode="In" Type="Int32" />
+      <Parameter Name="id_preparat" Mode="In" Type="Int32" />
+      <Parameter Name="id_alergenPreparat" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SelectareCantitateProdus">
+      <Parameter Name="denumireProdus" Mode="In" Type="String" />
+      <Parameter Name="cantitateP" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SelectareCantProdusInMeniu">
+      <Parameter Name="id_preparat" Mode="In" Type="String" />
+      <Parameter Name="cantitateInMeniu" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SelectareCategorie">
+      <Parameter Name="categoriePrimita" Mode="In" Type="String" />
+      <Parameter Name="id_categorie" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SelectareCont">
+      <Parameter Name="emailPrimit" Mode="In" Type="String" />
+      <Parameter Name="id_cont" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SelectareMeniu">
+      <Parameter Name="meniuPrimit" Mode="In" Type="String" />
+      <Parameter Name="id_meniu" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SelectarePreparat">
+      <Parameter Name="preparatPrimit" Mode="In" Type="String" />
+      <Parameter Name="id_preparat" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SelectarePretMeniu">
+      <Parameter Name="denumireMeniu" Mode="In" Type="String" />
+      <Parameter Name="pret_meniu" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SelectarePretProdus">
+      <Parameter Name="denumireProdus" Mode="In" Type="String" />
+      <Parameter Name="pret_produs" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="StergeAlergen">
+      <Parameter Name="denumire" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="StergeAlergenDupaID">
+      <Parameter Name="alergen" Mode="In" Type="Int32" />
+      <Parameter Name="preparat" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="StergeCategorie">
+      <Parameter Name="denumire" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="StergeMeniu">
+      <Parameter Name="denumire" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="StergePoza">
+      <Parameter Name="id_foto" Mode="In" Type="Int32" />
+      <Parameter Name="id_preparat" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="StergePreparat" ReturnType="Collection(Int32)">
+      <Parameter Name="denumire" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="StergePreparat2">
+      <Parameter Name="id_preparat" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="StergePreparatInMeniu">
+      <Parameter Name="denumireMeniu" Mode="In" Type="String" />
+      <Parameter Name="denumirePreparat" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TrimiteComanda">
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VerificaContComanda" ReturnType="Collection(RestaurantModel.VerificaContComanda_Result)">
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="stergePreparatDinCos">
+      <Parameter Name="denumire" Mode="In" Type="String" />
+      <Parameter Name="id_comanda" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="StergeMeniuDinCos">
+      <Parameter Name="denumire" Mode="In" Type="String" />
+      <Parameter Name="id_comanda" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ModificaStare">
+      <Parameter Name="id_comanda" Mode="In" Type="Int32" />
+      <Parameter Name="statusNou" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="AfisareAlergen_Result">
+    <Property Type="Int32" Name="id_alergen" Nullable="false" />
+    <Property Type="String" Name="denumire" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="AfisareAlergeni_Result">
+    <Property Type="Int32" Name="id_alergen" Nullable="false" />
+    <Property Type="String" Name="denumire" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="AfisareCategorieDupaID_Result">
+    <Property Type="Int32" Name="id_categorie" Nullable="false" />
+    <Property Type="String" Name="denumire" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="AfisareCategoriePreparat_Result">
+    <Property Type="Int32" Name="id_categorie" Nullable="false" />
+    <Property Type="String" Name="denumire" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="AfisareCategorii_Result">
+    <Property Type="Int32" Name="id_categorie" Nullable="false" />
+    <Property Type="String" Name="denumire" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="AfisareComenziCont_Result">
+    <Property Type="String" Name="email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="denumire" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="id_comanda" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="AfisareDetaliiComandaDupaEmail_Result">
+    <Property Type="String" Name="denumire" Nullable="true" MaxLength="100" />
+    <Property Type="Double" Name="pret" Nullable="true" />
+    <Property Type="Int32" Name="cantitate" Nullable="true" />
+    <Property Type="String" Name="denumiremeniu" Nullable="true" MaxLength="100" />
+    <Property Type="Double" Name="pret1" Nullable="true" />
+    <Property Type="Int32" Name="nrbucati" Nullable="true" />
+    <Property Type="Double" Name="pret2" Nullable="true" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="nume" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="prenume" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="adresa" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="telefon" Nullable="true" MaxLength="15" />
+  </ComplexType>
+  <ComplexType Name="AfisareDetaliiComandaDupaIdComanda_Result">
+    <Property Type="Int32" Name="id_comanda" Nullable="false" />
+    <Property Type="String" Name="denumire" Nullable="true" MaxLength="100" />
+    <Property Type="Double" Name="pret" Nullable="true" />
+    <Property Type="Int32" Name="cantitate" Nullable="true" />
+    <Property Type="Double" Name="pret1" Nullable="true" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="nume" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="prenume" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="adresa" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="telefon" Nullable="true" MaxLength="15" />
+  </ComplexType>
+  <ComplexType Name="AfisareDetaliiCont_Result">
+    <Property Type="String" Name="email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="nume" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="prenume" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="adresa" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="telefon" Nullable="true" MaxLength="15" />
+  </ComplexType>
+  <ComplexType Name="AfisareListaAlergeniPreparat_Result">
+    <Property Type="Int32" Name="id_alergenpreparat" Nullable="false" />
+    <Property Type="Int32" Name="id_preparat" Nullable="false" />
+    <Property Type="Int32" Name="id_alergen" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="AfisareMeniuriComanda_Result">
+    <Property Type="Int32" Name="id_comanda" Nullable="false" />
+    <Property Type="Int32" Name="id_comanda1" Nullable="true" />
+    <Property Type="String" Name="denumireMeniu" Nullable="true" MaxLength="100" />
+    <Property Type="Double" Name="pret" Nullable="true" />
+    <Property Type="Int32" Name="nrBucati" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="AfisarePreparatDupaCategorie_Result">
+    <Property Type="Int32" Name="id_preparat" Nullable="false" />
+    <Property Type="String" Name="denumire" Nullable="true" MaxLength="100" />
+    <Property Type="Double" Name="pret" Nullable="true" />
+    <Property Type="Int32" Name="cantitate" Nullable="true" />
+    <Property Type="Int32" Name="cantitate_totala" Nullable="true" />
+    <Property Type="Int32" Name="id_categorie" Nullable="true" />
+    <Property Type="String" Name="disponibilitate" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="id_categorie1" Nullable="false" />
+    <Property Type="String" Name="denumire1" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="AfisarePreparatDupaDenumire_Result">
+    <Property Type="Int32" Name="id_preparat" Nullable="false" />
+    <Property Type="String" Name="denumire" Nullable="true" MaxLength="100" />
+    <Property Type="Double" Name="pret" Nullable="true" />
+    <Property Type="Int32" Name="cantitate" Nullable="true" />
+    <Property Type="Int32" Name="cantitate_totala" Nullable="true" />
+    <Property Type="Int32" Name="id_categorie" Nullable="true" />
+    <Property Type="String" Name="disponibilitate" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="AfisarePreparatDupaID_Result">
+    <Property Type="Int32" Name="id_preparat" Nullable="false" />
+    <Property Type="String" Name="denumire" Nullable="true" MaxLength="100" />
+    <Property Type="Double" Name="pret" Nullable="true" />
+    <Property Type="Int32" Name="cantitate" Nullable="true" />
+    <Property Type="Int32" Name="cantitate_totala" Nullable="true" />
+    <Property Type="Int32" Name="id_categorie" Nullable="true" />
+    <Property Type="String" Name="disponibilitate" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="AfisarePreparate_Result">
+    <Property Type="Int32" Name="id_preparat" Nullable="false" />
+    <Property Type="String" Name="denumire" Nullable="true" MaxLength="100" />
+    <Property Type="Double" Name="pret" Nullable="true" />
+    <Property Type="Int32" Name="cantitate" Nullable="true" />
+    <Property Type="Int32" Name="cantitate_totala" Nullable="true" />
+    <Property Type="Int32" Name="id_categorie" Nullable="true" />
+    <Property Type="String" Name="disponibilitate" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="id_categorie1" Nullable="false" />
+    <Property Type="String" Name="denumire1" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="denumire2" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="AfisarePreparateDinMeniu_Result">
+    <Property Type="Int32" Name="id_preparat" Nullable="false" />
+    <Property Type="String" Name="denumire" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="cantitate" Nullable="true" />
+    <Property Type="Int32" Name="cantitate_totala" Nullable="true" />
+    <Property Type="Double" Name="pret" Nullable="true" />
+    <Property Type="Int32" Name="id_categorie" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="AfisarePreparateMeniu_Result">
+    <Property Type="Int32" Name="id_preparat" Nullable="false" />
+    <Property Type="Int32" Name="cantitate" Nullable="true" />
+    <Property Type="Int32" Name="cantitate_totala" Nullable="true" />
+    <Property Type="String" Name="denumire" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="id_categorie" Nullable="true" />
+    <Property Type="Double" Name="pret" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="CautaMeniu_Result">
+    <Property Type="Int32" Name="id_meniu" Nullable="false" />
+    <Property Type="Double" Name="pret" Nullable="true" />
+    <Property Type="Double" Name="reducere" Nullable="true" />
+    <Property Type="String" Name="denumireMeniu" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="CautaPreparat_Result">
+    <Property Type="Int32" Name="id_preparat" Nullable="false" />
+    <Property Type="String" Name="denumire" Nullable="true" MaxLength="100" />
+    <Property Type="Double" Name="pret" Nullable="true" />
+    <Property Type="Int32" Name="cantitate" Nullable="true" />
+    <Property Type="Int32" Name="cantitate_totala" Nullable="true" />
+    <Property Type="Int32" Name="id_categorie" Nullable="true" />
+    <Property Type="String" Name="disponibilitate" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="VerificaContComanda_Result">
+    <Property Type="Int32" Name="id_comanda" Nullable="false" />
+    <Property Type="Double" Name="Discount" Nullable="true" />
+    <Property Type="Int32" Name="id_status" Nullable="true" />
+    <Property Type="Int32" Name="id_cont" Nullable="true" />
+    <Property Type="Double" Name="pret" Nullable="true" />
+    <Property Type="DateTime" Name="timp" Nullable="true" />
+    <Property Type="Int32" Name="id_PreparatComanda" Nullable="false" />
+    <Property Type="Int32" Name="id_preparat" Nullable="true" />
+    <Property Type="Int32" Name="id_comanda1" Nullable="true" />
+    <Property Type="Int32" Name="nrBucati" Nullable="true" />
+    <Property Type="Int32" Name="id_meniucomanda" Nullable="false" />
+    <Property Type="Int32" Name="id_meniu" Nullable="true" />
+    <Property Type="Int32" Name="id_comanda2" Nullable="true" />
+    <Property Type="Int32" Name="nrBucati1" Nullable="true" />
+    <Property Type="Int32" Name="id_StatusulComenzii" Nullable="false" />
+    <Property Type="Int32" Name="id_comanda3" Nullable="true" />
+    <Property Type="Int32" Name="id_status1" Nullable="true" />
+    <Property Type="Int32" Name="id_cont1" Nullable="false" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="parola" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="statut" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="id_detalii" Nullable="false" />
+    <Property Type="String" Name="nume" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="prenume" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="adresa" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="telefon" Nullable="true" MaxLength="15" />
+    <Property Type="Int32" Name="id_cont2" Nullable="true" />
+  </ComplexType>
+</Schema>

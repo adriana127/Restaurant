@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4115f759fbd740818aa6e577d82850d8" Name="Diagram1">
+        <EntityTypeShape EntityType="RestaurantModel.Alergen" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestaurantModel.AlergenPreparat" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestaurantModel.Categorie" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestaurantModel.Comanda" Width="1.5" PointX="6" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestaurantModel.Cont" Width="1.5" PointX="3.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestaurantModel.DetaliiCont" Width="1.5" PointX="6" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestaurantModel.Fotografie" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestaurantModel.Meniu" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestaurantModel.MeniuComanda" Width="1.5" PointX="8.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestaurantModel.MeniuPreparat" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestaurantModel.Preparat" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestaurantModel.PreparatComanda" Width="1.5" PointX="8.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestaurantModel.StatusComanda" Width="1.5" PointX="3.75" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestaurantModel.StatusulComenzii" Width="1.5" PointX="8.25" PointY="14" IsExpanded="true" />
+        <AssociationConnector Association="RestaurantModel.FK__AlergenPr__id_al__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="RestaurantModel.FK__AlergenPr__id_pr__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="RestaurantModel.FK__Preparat__id_cat__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="RestaurantModel.FK__Comanda__id_cont__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="RestaurantModel.FK__Comanda__id_stat__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="RestaurantModel.FK__MeniuComa__id_co__03F0984C" ManuallyRouted="false" />
+        <AssociationConnector Association="RestaurantModel.FK__PreparatC__id_co__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="RestaurantModel.FK__StatusulC__id_co__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="RestaurantModel.FK__DetaliiCo__id_co__7C4F7684" ManuallyRouted="false" />
+        <AssociationConnector Association="RestaurantModel.FK__Fotografi__id_pr__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="RestaurantModel.FK__MeniuComa__id_me__02FC7413" ManuallyRouted="false" />
+        <AssociationConnector Association="RestaurantModel.FK__MeniuPrep__id_me__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="RestaurantModel.FK__MeniuPrep__id_pr__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="RestaurantModel.FK__PreparatC__id_pr__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="RestaurantModel.FK__StatusulC__id_st__5CD6CB2B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

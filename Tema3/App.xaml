@@ -1,0 +1,214 @@
+﻿<Application x:Class="Tema3.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Tema3"
+             xmlns:viewmodels="clr-namespace:Tema3.ViewModel"
+             xmlns:views="clr-namespace:Tema3.View"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <DataTemplate DataType="{x:Type viewmodels:AdaugaDetaliiContViewMode}">
+            <views:AdaugaDetaliiContView>
+            </views:AdaugaDetaliiContView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:DetaliiMeniuViewModel}">
+            <views:DetaliiMeniu>
+            </views:DetaliiMeniu>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ComenziViewModel}">
+            <views:ComenziView>
+            </views:ComenziView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:SignUpViewModel}">
+            <views:SignUpView>
+            </views:SignUpView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:CartViewModel}">
+            <views:CartView>
+            </views:CartView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
+            <views:LoginView>
+            </views:LoginView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:AdaugareMeniuViewModel}">
+            <views:AdaugaMeniuView>
+            </views:AdaugaMeniuView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:MeniuViewModel}">
+            <views:MeniuView>
+            </views:MeniuView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:CategoriiViewModel}">
+            <views:CategoriiView>
+            </views:CategoriiView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:AlergenViewModel}">
+            <views:AlergenView>
+            </views:AlergenView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:PreparateViewModel}">
+            <views:PreparateView>
+            </views:PreparateView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:AdaugarePreparatViewModel}">
+            <views:AdaugaPreparatView>
+            </views:AdaugaPreparatView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:AlergenPreparatViewModel}">
+            <views:AlergenPreparat>
+            </views:AlergenPreparat>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:DetaliiPreparatViewModel}">
+            <views:DetaliiPreparat>
+            </views:DetaliiPreparat>
+        </DataTemplate>
+
+        <DataTemplate x:Key="alergeniListBox">
+            <WrapPanel>
+                <TextBlock Text="{Binding denumire}" Foreground="Green" FontWeight="Bold" />
+            </WrapPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="categoriiListBox">
+            <WrapPanel>
+                <TextBlock Text="{Binding denumire}" Foreground="Green" FontWeight="Bold" />
+            </WrapPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="listBoxTemplate">
+
+
+            <Grid Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" MinHeight="150"/>
+                    <RowDefinition  Height="90" MinHeight="25" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25" MinWidth="25"/>
+                        <ColumnDefinition  Width="200" MinWidth="25" />
+                        <ColumnDefinition  />
+
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="1" HorizontalAlignment="Center" Height="150" Width="200"  Source="{Binding Fotografie.foto_path}"></Image>
+
+                </Grid>
+                <StackPanel Grid.Row="1">
+                    <DockPanel>
+                        <TextBlock FontWeight="Bold" Text="      " Foreground="Green" DockPanel.Dock="Left" Margin="5,0,10,0" />
+                        <TextBlock Text="" />
+                        <TextBlock Text="{Binding Preparat.denumire}" Foreground="Green" FontWeight="Bold" />
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock FontWeight="Bold" Text="     Pret:" Foreground="DarkOrange" DockPanel.Dock="Left" Margin="5,0,5,0" />
+                        <TextBlock Text="{Binding Preparat.pret}" Foreground="DarkOrange"/>
+                        <TextBlock Text=" Lei" Foreground="DarkOrange"></TextBlock>
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock FontWeight="Bold" Text="     Categorie:" Foreground="DarkOrange" DockPanel.Dock="Left" Margin="5,0,5,0" />
+                        <TextBlock Text="{Binding Categorie.denumire}" Foreground="DarkOrange" />
+                    </DockPanel>
+                    
+                    <DockPanel>
+                        <TextBlock FontWeight="Bold" Text="     Cantitate:" Foreground="DarkOrange" DockPanel.Dock="Left" Margin="5,0,5,0" />
+                        <TextBlock Text="{Binding Preparat.cantitate}" Foreground="DarkOrange" />
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock FontWeight="Bold" Text="     Stoc:" Foreground="DarkOrange" DockPanel.Dock="Left" Margin="5,0,5,0" />
+                        <TextBlock Text="{Binding Preparat.disponibilitate}" Foreground="DarkOrange" />
+                    </DockPanel>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="imageListTemplate">
+
+
+            <Image  HorizontalAlignment="Center" Height="50" Width="50"  Source="{Binding foto_path}"></Image>
+
+        </DataTemplate>
+
+
+        <DataTemplate x:Key="lisMeniuTemplate">
+
+
+            <Grid Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" MinHeight="200"/>
+                    <RowDefinition  Height="70" MinHeight="25" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25" MinWidth="25"/>
+                        <ColumnDefinition  Width="200" MinWidth="25" />
+                        <ColumnDefinition  />
+
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="1" HorizontalAlignment="Center" Height="200" Width="200"  Source="\Images\menu3.jpg"></Image>
+
+                </Grid>
+                <StackPanel Grid.Row="1">
+                    <DockPanel>
+                        <TextBlock FontWeight="Bold" Text="     Name:" Foreground="Green" DockPanel.Dock="Left" Margin="5,0,10,0" />
+                        <TextBlock Text="" />
+                        <TextBlock Text="{Binding denumireMeniu}" Foreground="Green" FontWeight="Bold" />
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock FontWeight="Bold" Text="     Pret:" Foreground="Green" DockPanel.Dock="Left" Margin="5,0,10,0" />
+                        <TextBlock Text="" />
+                        <TextBlock Text="{Binding pret}" Foreground="Green" FontWeight="Bold" />
+                    </DockPanel>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="listBoxNewTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="170" MinWidth="25"/>
+                    <ColumnDefinition  Width="30" MinWidth="25" />
+                    <ColumnDefinition  Width="30" MinWidth="25" />
+                    <ColumnDefinition  />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="{Binding denumire}" Foreground="Green" FontWeight="Bold" />
+                <TextBlock Grid.Column="1" Text="{Binding cantitate}" Foreground="Green" FontWeight="Bold" />
+                <TextBlock Grid.Column="2" Text="{Binding pret}" Foreground="Green" FontWeight="Bold" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="cumparaturiTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="170" MinWidth="25"/>
+                    <ColumnDefinition  Width="30" MinWidth="25" />
+                    <ColumnDefinition  Width="30" MinWidth="25" />
+                    <ColumnDefinition  />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="{Binding Denumire}" Foreground="Green" FontWeight="Bold" />
+                <TextBlock Grid.Column="1" Text="{Binding Bucati}" Foreground="Green" FontWeight="Bold" />
+                <TextBlock Grid.Column="2" Text="{Binding Pret}" Foreground="Green" FontWeight="Bold" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="comenziTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="110" MinWidth="25"/>
+                    <ColumnDefinition Width="200" MinWidth="25"/>
+                    <ColumnDefinition Width="100" MinWidth="25"/>
+
+                    <ColumnDefinition  Width="100" MinWidth="25" />
+                    <ColumnDefinition  Width="30" MinWidth="25" />
+                    <ColumnDefinition  Width="30" MinWidth="25" />
+
+                    <ColumnDefinition  />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="{Binding Destinatar}" Foreground="Green" FontWeight="Bold" />
+                <TextBlock Grid.Column="1" Text="{Binding Adresa}" Foreground="Green" FontWeight="Bold" />
+                <TextBlock Grid.Column="2" Text="{Binding Numar}" Foreground="Green" FontWeight="Bold" />
+
+                <TextBlock Grid.Column="3" Text="{Binding Status}" Foreground="Green" FontWeight="Bold" />
+                <TextBlock Grid.Column="4" Text="{Binding Pret}" Foreground="Green" FontWeight="Bold" />
+                <TextBlock Grid.Column="5" Text="{Binding Numarcomanda}" Foreground="Green" FontWeight="Bold" />
+
+            </Grid>
+        </DataTemplate>
+    </Application.Resources>
+</Application>
